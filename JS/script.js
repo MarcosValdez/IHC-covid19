@@ -23,3 +23,14 @@ xhr.onload = function(){
     }
 }
 xhr.send(); 
+
+$(document).ready(function() {
+    $('#data').DataTable( {
+        language: {
+            url: "https://cdn.datatables.net/plug-ins/1.10.22/i18n/Spanish.json"
+        },
+        "lengthChange":false,
+        "order": [],
+        "pageLength": 5
+    } );
+} );
