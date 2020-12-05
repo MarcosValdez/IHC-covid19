@@ -9,10 +9,13 @@ h1{
     padding: 150px 0;
     margin-bottom: 50px;
 }
-#trianguflo{
+#triangulo{
     display: inline;
+    position: absolute;
+   /*  float: left; */
     width: 0;
     height: 0;
+    /* padding-bottom: 20px; */
     border-right: 5px solid transparent;
     border-left: 5px solid transparent;
     border-bottom: 10px solid #000;
