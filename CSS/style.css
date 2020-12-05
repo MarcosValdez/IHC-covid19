@@ -76,3 +76,9 @@ p{
     width: 70%;
     margin: auto;
 }
+
+#map{
+    width: 500px;
+    height: 500px;
+    margin: auto;
+}

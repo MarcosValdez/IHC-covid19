@@ -40,3 +40,13 @@ window.addEventListener("scroll", function(){
     let header = document.querySelector("header");
     header.classList.toggle("sticky", window.scroll > 0); 
 })
+
+mapboxgl.accessToken = 'pk.eyJ1IjoibWFyY29zdiIsImEiOiJja2liNHF2bWkwNjlyMnFsYWVtbXo3cGI5In0.oTCXFk1EXHOjTjMSdu6ZzQ';
+
+var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/dark-v10',
+    center: [-77.02824,-12.04318],
+    zoom: 3
+
+});
