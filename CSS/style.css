@@ -1,4 +1,9 @@
 @import '//codepen.io/chrisdothtml/pen/ojLzJK.css';
+
+.social-btns{
+  display: flex;
+  flex-direction: column;
+}
 .social-btns .btn,
 .social-btns .btn:before,
 .social-btns .btn .fa {
