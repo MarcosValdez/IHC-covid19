@@ -14,6 +14,11 @@
             require '../View/Usuario/RegistrarView.php';
         }
 
+        public function Testear(){
+            $this->mandar();
+            
+        }
+
         public function redirectPrincipal(){
             header("location: ../View/PrincipalView.php");
         }
@@ -31,7 +36,6 @@
             $this->direccion = $direccion;
 
             $this->Insertar_Usuario();
-
         }
 
         public function loginAcceso($email,$password){
@@ -69,7 +73,18 @@
 
         $miControlador->Verificar_Login($email,$password);
     }
-    
+
+
+
+/*TEST*/
+    if(isset($_GET['action']) && $_GET['action']=='test'){
+        $is = new UsuarioController();
+        $is->Testear();
+    }
+
+
+
+
     if(isset($_GET['action']) && $_GET['action']=='login'){
         $is = new UsuarioController();
         $is->LoginView();
@@ -104,6 +119,7 @@
             $_POST['Distrito'],
             $_POST['Direccion']
         );
+
         
     }
 

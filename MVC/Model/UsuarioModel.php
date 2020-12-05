@@ -82,5 +82,30 @@
 
             return $this->logeo;
         }
+
+        public function mandar(){
+            $email = 'mazher_2014@hotmail.com';
+            $consulta = $this->db->query("SELECT INT_CLIEID, VCH_CLIEEMAIL, VCH_CLIENOMBRES, VCH_CLIEPASSWORD FROM users WHERE VCH_CLIEEMAIL = '$email'");
+            $filas = $consulta->fetch(PDO::FETCH_ASSOC);
+
+            $ID_ENVIO = $filas['INT_CLIEID'];
+            $NOMBRE_ENVIO = $filas['VCH_CLIENOMBRES'];
+
+            #SQL
+            $datos = array(
+                array(
+                    'id' => $ID_ENVIO,
+                    'nombre' => $NOMBRE_ENVIO
+
+                ),array(
+                    'id' => 2,
+                    'nombre' => "ED"
+                )
+            );
+            echo json_encode($datos);
+
+            require '../View/TablaUsuarios.php';
+            
+        }
     }
 ?>

@@ -7,24 +7,20 @@
     <title>Document</title>
 </head>
 <body>
+  <h2>Login</h2>
+    <form action="../Controller/UsuarioController.php" method="POST">
 
-    <form action="UsuarioController.php" metho="POST">
-        <div class="login-wrap">
-        <h2>Login</h2>
-    
-            <div class="form">
+        
                 <input type="text" placeholder="Email" name="Email" />
-                <input type="hidden" name="action" value="login">
                 <input type="password" placeholder="Password" name="Password" />
-                <!-- <button> Sign in </button>-->
-                <!-- <li><a href="http://localhost/MVC/Controller/UsuarioController.php?action=signup">Ingresar.</a></li> -->
 
-                <input type="hidden" action="login">
-                <input type="submit" text="lmao">
-                <a href="#"> <p> Don't have an account? Register </p></a>
-            </div>
-        </div>
-    </form>
+
+               <!--  <button> Sign in </button>-->
+               <!--  <li><a href="http:/IHC-COVID19/localhost//MVC/Controller/UsuarioController.php?action=login">Ingresar.</a></li>--> 
+               <input type="hidden" name="action" value="login">
+
+                <input type="submit" value="Ingresar">
+  </form>
 
 <script>
 // Login/Register form

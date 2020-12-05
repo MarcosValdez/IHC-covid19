@@ -8,7 +8,7 @@
     //Redireccionamiento si no hay logeo
     if(empty($_SESSION['nombre'])){
         $is = redirect();
-    }
+    }/*aquiiiiiiiiiii*/ 
 
 
 ?>

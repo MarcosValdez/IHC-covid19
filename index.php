@@ -15,7 +15,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js"></script>
     
-    <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="stylesheet" href="CSS/style.css">
 </head>
 <body>
     
@@ -35,7 +35,61 @@
         </section>        
         <div id="triangulos"></div>
     </header>
+
     <h1>Lista</h1>
+
+    <div id = "header">
+        <ul class= "nav">
+            <li><a href="">Inicio</a></li>
+
+            <li><a href="">Clientes</a>
+                <ul>
+                    <li><a href="">Ficha Clientes</a></li>
+                    <li><a href="">Ficha Clientes2</a></li>
+                    <li><a href="">Ficha Clientes3</a></li>
+                </ul>
+            </li>
+
+            <li><a href="">Tecnicos</a>
+                <ul>
+                    <li><a href="">Ficha Clientes</a></li>
+                    <li><a href="">Ficha Clientes2</a></li>
+                    <li><a href="MVC/Controller/UsuarioController.php?action=test">Test</a></li>
+                </ul>
+            </li>
+
+            <li><a href="">Iniciar Session</a>
+                <ul>
+                    <!-- <li><a href="View/Usuario/LoginView.php">Inicio de sesion para clientes.</a></li> -->
+                    <li><a href="http://localhost/IHC-COVID19/MVC/Controller/UsuarioController.php?action=login">Inicio de sesion para clientes.</a></li>
+                    <li><a href="">Inicio de sesion para técnicos.</a></li>
+                </ul>
+            </li>
+
+            <li><a href="">Registrarse</a>
+                <ul>
+                    <li><a href="MVC/Controller/UsuarioController.php?action=registrar">Registro para clientes.</a></li>
+                    <li><a href="">Registro para técnicos.</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vel ratione expedita mollitia iusto sapiente. Blanditiis eum temporibus delectus minus quae? Voluptatibus minima facere labore expedita eligendi ad culpa asperiores voluptatum?
     Id, beatae. Error voluptatum voluptas itaque voluptatem eius. Similique libero maxime quos quae vel ipsam est, unde eveniet? Repudiandae accusantium ipsum ex totam, aperiam sit sequi! Doloremque nemo iste quibusdam.
     Quidem distinctio non fuga deserunt architecto esse enim illum et mollitia dicta ab harum quod, facere culpa qui nostrum ducimus? Soluta vitae quisquam voluptate aspernatur laudantium suscipit veniam eos aut.
@@ -260,5 +314,6 @@
     <footer><div>Copyright 2020 AmezagaCode | Todos los derechos reservados</div></footer>
     <script src="../JS/script.js"></script>
     <script src="https://cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"></script>
+
 </body>
 </html>

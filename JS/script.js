@@ -18,6 +18,7 @@ xhr.onload = function(){
             return template;
         });
         document.getElementById("lista").innerHTML = template;
+        console.log(datos);
     }else{
         console.log("Error");
     }
