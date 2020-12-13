@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Sistema de Vacunacion</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'>
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.1/animate.min.css'>
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Poiret+One''>
+<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css'><link rel="stylesheet" href="/CSS/login.css">
+
+</head>
+<body>
+    <header>
+        <section id = "header">
+            <a id = "logo" href="#">LOGO</a>
+            <nav class = "nav-bar">
+                <ul id="nav-item">
+                    <li><a  href="/HTML/index.html">Inicio</a></li>
+                    <li><a id = "inicio" href="/HTML/verificar.html">Verificar</a></li>
+                    <li><a href="#">Acerca de nosotros</a></li>
+                </ul>
+            </nav>
+            <ul>
+                <li><a href="/HTML/login.html"><i class="fas fa-sign-in-alt"></i>Acceder</a></li>
+            </ul>
+        </section>        
+        <div id="triangulos"></div> 
+    </header>
+<!-- partial:index.partial.html -->
+<div class="container login-form">
+	<h2 class="login-title">Bienvenido</h2>
+	<h3 class="login-title">Ingreso a los datos de usuario</h3>
+	<div class="panel panel-default">
+		<div class="panel-body">
+			<form>
+				<div class="input-group login-userinput">
+					<span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+					<input id="txtUser" type="text" class="form-control" name="username" placeholder="Ingrese Usuario">
+				</div>
+				<div class="input-group">
+					<span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+					<input  id="txtPassword" type="password" class="form-control" name="password" placeholder="Ingrese Contraseña">
+					<span id="showPassword" class="input-group-btn">
+            <button class="btn btn-default reveal" type="button"><i class="glyphicon glyphicon-eye-open"></i></button>
+          </span>  
+				</div>
+				<button class="btn btn-primary btn-block login-button" type="submit"><i class="fa fa-sign-in"></i> Entrar</button>
+				<button class="btn btn-primary btn-block login-button" type="submit"><i class="fa fa-arrow-left"></i> Volver</button>
+				<div class="checkbox login-options">
+					<label><input type="checkbox"/> Recordar contraseña</label>
+					<a href="#" class="login-forgot">Olvide mi contraseña?</a>
+				</div>		
+			</form>			
+		</div>
+	</div>
+</div>
+<footer><div>Copyright 2020 AmezagaCode | Todos los derechos reservados</div></footer>
+<!-- partial -->
+  <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
+<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js'></script><script  src="./login.js"></script>
+
+</body>
+</html>
