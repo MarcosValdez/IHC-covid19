@@ -1,7 +1,5 @@
-<h1>REGISTRAR CLIENTE</h1>
+<h1>REGISTRAR ADMINISTRADOR</h1>
     <form action="../Controller/UsuarioController.php" method="POST">
-
-        <input name="DNI" type="text" placeholder="Ingrese su DNI"><br>
 
         <input name="Apellido_Paterno" type="text" placeholder="Ingrese su apellido paterno"><br>
         <input name="Apellido_Materno" type="text" placeholder="Ingrese su apellido materno"><br>
@@ -10,10 +8,6 @@
 
         <input name="Password" type="password" placeholder="Ingrese una contraseña"><br>
         <input name="Password_Confirmacion" type="password" placeholder="Vuelva a ingresar la contraseña"><br>
-
-        <input name="Telefono" type="text" placeholder="Ingrese su telefono"><br>
-        <input name="Distrito" type="text" placeholder="Ingrese su distrito"><br>
-        <input name="Direccion" type="text" placeholder="Ingrese su direccion"><br>
 
         <input type="hidden" name="action" value="signup">
 

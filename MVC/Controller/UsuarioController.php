@@ -1,8 +1,14 @@
 <?php
-    require_once("../Model/UsuarioModel.php");
-    require_once("SessionController.php");
+    require '../Model/UsuarioModel.php';
+    require '../Controller/SessionController.php';
 
-    $objSession = new SessionController();
+    $is = new SessionController();
+
+    if(empty($_SESSION['nombre'])){
+
+        $is->redirect();
+
+    }
 
     class UsuarioController extends UsuarioModel{
         
@@ -16,24 +22,30 @@
 
         public function Testear(){
             $this->mandar();
-            
+        }
+
+        public function Hospitales(){
+            $matriz = $this->obtenerHospitales();
+            require_once("../View/TablaMuestras.php");
+        }
+
+        public function Listar_Pacientes(){
+            $matriz = $this->obtenerPacientes();
+            require_once("../View/PacientesView.php");
         }
 
         public function redirectPrincipal(){
-            header("location: ../View/PrincipalView.php");
+            header("location: ../../index.php");
         }
 
-        public function SaveInfoForModel($DNI,$apaterno,$amaterno,$nombres,$email,$password,$telefono,$distrito,$direccion){
+        public function SaveInfoForModel($apaterno,$amaterno,$nombres,$email,$password){
             /*CONTINUAMOS AQUI*/
-            $this->id = $DNI;
+
             $this->apellido_paterno = $apaterno;
             $this->apellido_materno = $amaterno;
             $this->nombres = $nombres;
             $this->email = $email;
             $this->password = $password;
-            $this->telefono = $telefono;
-            $this->distrito = $distrito;
-            $this->direccion = $direccion;
 
             $this->Insertar_Usuario();
         }
@@ -53,14 +65,26 @@
 
             }
 
-            if(password_verify($password,$usuario->VCH_CLIEPASSWORD)){
-                $_SESSION['nombre'] = $usuario->VCH_CLIENOMBRES;
-                $_SESSION['apellidoPaterno'] = $usuario->VCH_CLIEPATERNO;
-                $_SESSION['apellidoMaterno'] = $usuario->VCH_CLIEMATERNO;
+            if(password_verify($password,$usuario->VCH_ADMINPASSWORD)){
+                $_SESSION['nombre'] = $usuario->VCH_ADMINNOMBRES;
+                $_SESSION['apellidoPaterno'] = $usuario->VCH_ADMINPATERNO;
+                $_SESSION['apellidoMaterno'] = $usuario->VCH_ADMINMATERNO;
                 $this->redirectPrincipal();
             }else{
                 header("location: ../View/Usuario/LoginView.php");
             }
+        }
+
+        public function Logout(){
+            session_start();
+
+            session_unset();
+          
+            session_destroy();
+          
+            require '../View/Usuario/LoginView.php';
+
+            header('Location: ../../index.php');
         }
     }
     //if (!empty($_POST['email']) && !empty($_POST['password'])) {    NUNCA ENVIAR PASSWORD A TRAVES DE GET
@@ -68,12 +92,17 @@
     if (isset($_POST['action']) && $_POST['action']=='login') { 
         $miControlador = new UsuarioController();
 
-        $email = $_POST['email'];
-        $password = $_POST['password'];
+        $email = $_POST['Email'];
+        $password = $_POST['Password'];
 
         $miControlador->Verificar_Login($email,$password);
     }
 
+
+    if(isset($_GET['action']) && $_GET['action']=='logout'){
+        $is = new UsuarioController();
+        $is->Logout();
+    }
 
 
 /*TEST*/
@@ -82,7 +111,15 @@
         $is->Testear();
     }
 
+    if(isset($_GET['action']) && $_GET['action']=='hospitales'){
+        $is = new UsuarioController();
+        $is->Hospitales();
+    }
 
+    if(isset($_GET['action']) && $_GET['action']=='lista_general'){
+        $is = new UsuarioController();
+        $is->Listar_Pacientes();
+    }
 
 
     if(isset($_GET['action']) && $_GET['action']=='login'){
@@ -99,25 +136,14 @@
         $is = new UsuarioController();
 
         $password = password_hash($_POST['Password'],PASSWORD_BCRYPT);
-        
-        /* Tratamiento de una fotografia
-        $foto=$_FILES['imagen']['name'];
-        $fototemporal = $_FILES['imagen']['tmp_name'];
-        $fotourl = "../Views/Usuario/Image/". $foto;
-        copy($fototemporal,$fotourl);
-        */
 
         $is->SaveInfoForModel(
-            $_POST['DNI'],
 
             $_POST['Apellido_Paterno'],
             $_POST['Apellido_Materno'],
             $_POST['Nombres'],
             $_POST['Email'],
-            $password,
-            $_POST['Telefono'],
-            $_POST['Distrito'],
-            $_POST['Direccion']
+            $password
         );
 
         

@@ -4,7 +4,7 @@
 
         public static function conexion(){
             try{
-                $conexion = new PDO('mysql:host=localhost; dbname=php_login_database','root','car$lpibe$758.');
+                $conexion = new PDO('mysql:host=localhost; dbname=ihc_covid19','root','car$lpibe$758.');
                 $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                 $conexion->exec("SET CHARACTER SET UTF8");
 

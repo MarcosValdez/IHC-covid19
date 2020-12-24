@@ -8,8 +8,7 @@ class SessionController{
 
     public function redirect()
     {
-        //header("location: UsuarioController.php?action=login");
-        header("location: UsuarioController.php?action=login");
+        header("../MVC/Controller/UsuarioController.php?action=login");
     }
 }
 
