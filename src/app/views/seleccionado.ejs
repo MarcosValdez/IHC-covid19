@@ -6,60 +6,42 @@
     </head>
 
     <body>
-        <header class="menu">
-            <section id="cabecera">
-                <a id="logo" href="/">AmezagaCode</a>
-                <nav class="navbar-menu">
-                    <ul id="navitem-elemento">
-                        <li><a href="/">Inicio</a></li>
-                        <li><a href="verificar">Verificar</a></li>
-                        <li><a href="#">Acerca de nosotros</a></li>
-                    </ul>
-                </nav>
-                <ul class="link-login-acceder">
-                    <li><a href="login"><i class="fas fa-sign-in-alt"></i>Acceder</a></li>
-                </ul>
-                <div class="lines">
-                    <i class="fas fa-bars"></i>
+        <%- include ('partials/_navbar',{uno:'', dos: '', tres: ''}) %>
+            <div></div>
+            <!-- partial:index.partial.html -->
+            <div class="container seleccionado">
+                <div class="titulo">
+                    <div class="check">
+                        <i class="far fa-check-circle"></i>
+                    </div>
+                    HAS SIDO SELECCIONADO
                 </div>
-            </section>
-
-        </header>
-        <div></div>
-        <!-- partial:index.partial.html -->
-        <div class="container seleccionado">
-            <div class="titulo">
-                <div class="check">
-                    <i class="far fa-check-circle"></i>
-                </div>
-                HAS SIDO SELECCIONADO
-            </div>
-            <div class="datos">
-                <div class="row">
-                    <div class="col-sm">
-                        Nombre del Hospital:
+                <div class="datos">
+                    <div class="row">
+                        <div class="col-sm">
+                            Nombre del Hospital:
+                        </div>
+                        <div class="col">
+                            <%= resultado[0].nombre_hospital %>
+                        </div>
                     </div>
-                    <div class="col">
-                        <%= resultado[0].nombre_hospital %>
+                    <div class="row">
+                        <div class="col-sm">
+                            Direccion:
+                        </div>
+                        <div class="col">
+                            <%= resultado[0].direccion_hospital %>
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm">
-                        Direccion:
+                    <div class="row">
+                        <div class="col-sm">
+                            Telefono:
+                        </div>
+                        <div class="col">
+                            <%= resultado[0].telefono_paciente %>
+                        </div>
                     </div>
-                    <div class="col">
-                        <%= resultado[0].direccion_hospital %>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm">
-                        Telefono:
-                    </div>
-                    <div class="col">
-                        <%= resultado[0].telefono_paciente %>
-                    </div>
-                </div>
-                <!-- <div class="row">
+                    <!-- <div class="row">
                 <div class="col-sm">
                     Pagina Web:
                 </div>
@@ -67,21 +49,21 @@
                     WebPlaceholder
                 </div>
             </div> -->
-            </div>
-            <div class="mapa-hospital">
-                <iframe src=<%=resultado[0].mapa %> width="600" height="450" frameborder="0"
+                </div>
+                <div class="mapa-hospital">
+                    <iframe src=<%=resultado[0].mapa %> width="600" height="450" frameborder="0"
                     style="border:0;"allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                </div>
             </div>
-        </div>
 
 
-        <%- include ('partials/_footer') %>
+            <%- include ('partials/_footer') %>
 
-            <!-- partial -->
-            <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
-            <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js'></script>
-            <script src="index.js"></script>
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+                <!-- partial -->
+                <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
+                <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js'></script>
+                <script src="index.js"></script>
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     </body>
 

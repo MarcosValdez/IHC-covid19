@@ -5,48 +5,49 @@
 
     <body>
         <!-- partial:index.partial.html -->
-        <table>
-            <thead>
-                <tr>
-                    <th>DNI</th>
-                    <th>Nombres</th>
-                    <th>Categoria</th>
-                    <th>Subcategoria</th>
-                    <th>Estado</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td data-column="DNI">70934491</td>
-                    <td data-column="Nombres">Frank</td>
-                    <td data-column="Categoria">Ingenieria</td>
-                    <td data-column="Subcategoria">Software</td>
-                    <td data-column="Estado">No Vacunado</td>
-                </tr>
-                <tr>
-                    <td data-column="DNI">12345678</td>
-                    <td data-column="Nombres">Nagy</td>
-                    <td data-column="Categoria">Salud</td>
-                    <td data-column="Subcategoria">Psicologia</td>
-                    <td data-column="Estado">No Vacunado</td>
-                </tr>
-                <tr>
-                    <td data-column="DNI">98765432</td>
-                    <td data-column="Nombres">Biro</td>
-                    <td data-column="Categoria">Alimenticio</td>
-                    <td data-column="Subcategoria">Puericultor</td>
-                    <td data-column="Estado">No Vacunado</td>
-                </tr>
-                <tr>
-                    <td data-column="DNI">15975364</td>
-                    <td data-column="Nombres">Mastah</td>
-                    <td data-column="Categoria">Acedemico</td>
-                    <td data-column="Subcategoria">Sociologia</td>
-                    <td data-column="Estado">Vacunado</td>
-                </tr>
-            </tbody>
-        </table>
-        <!-- partial -->
+        <%- include ('partials/_navbar',{uno:'', dos: '', tres: ''}) %>
+            <table>
+                <thead>
+                    <tr>
+                        <th>DNI</th>
+                        <th>Nombres</th>
+                        <th>Categoria</th>
+                        <th>Subcategoria</th>
+                        <th>Estado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-column="DNI">70934491</td>
+                        <td data-column="Nombres">Frank</td>
+                        <td data-column="Categoria">Ingenieria</td>
+                        <td data-column="Subcategoria">Software</td>
+                        <td data-column="Estado">No Vacunado</td>
+                    </tr>
+                    <tr>
+                        <td data-column="DNI">12345678</td>
+                        <td data-column="Nombres">Nagy</td>
+                        <td data-column="Categoria">Salud</td>
+                        <td data-column="Subcategoria">Psicologia</td>
+                        <td data-column="Estado">No Vacunado</td>
+                    </tr>
+                    <tr>
+                        <td data-column="DNI">98765432</td>
+                        <td data-column="Nombres">Biro</td>
+                        <td data-column="Categoria">Alimenticio</td>
+                        <td data-column="Subcategoria">Puericultor</td>
+                        <td data-column="Estado">No Vacunado</td>
+                    </tr>
+                    <tr>
+                        <td data-column="DNI">15975364</td>
+                        <td data-column="Nombres">Mastah</td>
+                        <td data-column="Categoria">Acedemico</td>
+                        <td data-column="Subcategoria">Sociologia</td>
+                        <td data-column="Estado">Vacunado</td>
+                    </tr>
+                </tbody>
+            </table>
+            <!-- partial -->
 
     </body>
 
