@@ -10,6 +10,6 @@ module.exports = {
         if (!req.isAuthenticated()) {
             return next();
         }
-        return res.redirect('/admin');
+        return res.redirect('/dashboard');
     }
 }

@@ -65,7 +65,7 @@ router.post('/login', (req, res, next) => {
     /* const { username, password } = req.body; */
 
     passport.authenticate('local.signin', {
-        successRedirect: '/admin',
+        successRedirect: '/dashboard',
         failureRedirect: '/login',
         failureFlash: true
     })(req, res, next);
