@@ -11,7 +11,6 @@
             <aside class="responsive-banner">
                 <span class="circle-a"></span>
                 <span class="circle-b"></span>
-                <!-- <img id="imagen-baner" src="/images/covid3.jpg" /> -->
                 <div class="container-envelope">
 
                     <div class="col-xs-12">
@@ -50,7 +49,7 @@
 
 
             <h2>Hospitales donde se puede vacunar</h2>
-            <!--Tabla de Prueba-->
+
             <div class="table-responsive">
                 <table id="data" class="table">
                     <thead>
@@ -58,7 +57,6 @@
                             <th class="th-sm">Hospital</th>
                             <th class="th-sm">Direccion</th>
                             <th class="th-sm">Telefono</th>
-                            <!-- <th class="th-sm">Mapa</th> -->
                         </tr>
                     </thead>
                     <tbody>
@@ -74,17 +72,12 @@
                                 <td>
                                     <%= resultado[i].telefono_paciente %>
                                 </td>
-                                <!-- <td>
-                    <iframe src= <%= resultado[i].mapa %> width="600" height="450" frameborder="0" style="border:0;"allowfullscreen="" aria-hidden="false" tabindex="0"></iframe></td> -->
                             </tr>
                             <% } %>
                     </tbody>
                 </table>
             </div>
 
-            <!-- partial:index.partial.html -->
-            <!--    <div class="social-btns"><a class="btn facebook" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fwww.designbombs.com%2Fsnippets%2Fshare-buttons"><i class="fa fa-facebook"></i></a><a class="btn twitter" href="https://twitter.com/intent/tweet?url=http%3A%2F%2Fwww.designbombs.com%2Fsnippets%2Fshare-buttons&amp;via=CSSFlow&amp;text=CSS3%20snippet%3A%20share%20buttons"><i class="fa fa-twitter"></i></a>
-    </div> -->
             <%- include ('partials/_footer') %>
 
 

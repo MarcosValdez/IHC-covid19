@@ -18,8 +18,7 @@ router.get('/register', (req, res) => {
 router.post('/register', passport.authenticate('local.signup', {
     successRedirect: '/register',
     failureRedirect: '/',
-    failureFash: false,
-    session: false
+    failureFash: false
 }));
 
 router.get('/verificar', (req, res) => {
@@ -27,7 +26,7 @@ router.get('/verificar', (req, res) => {
 })
 
 
-router.get('/login', (req, res) => {
+router.get('/login', isNotLoggedIn, (req, res) => {
     res.render('login');
 })
 
@@ -36,41 +35,32 @@ router.get('/seleccionado', async(req, res) => {
     res.render('seleccionado', { resultado: respuesta })
 })
 
-router.get('/noseleccionado', (req, res) => {
-    res.render('noseleccionado');
-})
-
-router.get('/dashboard', (req, res) => {
+/* router.get('/dashboard', (req, res) => {
     res.render('dashboard');
-})
-router.get('/admin', (req, res) => {
-    res.render('admin');
+}) */
+
+router.get('/admin', isLoggedIn, async(req, res) => {
+    const personas = await pool.query('SELECT * FROM PERSONA');
+    const ubicaciones = await pool.query('SELECT * FROM UBICACION');
+    const categorias = await pool.query('SELECT * FROM CATEGORIA');
+    const subcategorias = await pool.query('SELECT * FROM SUBCATEGORIA');
+    res.render('admin', { personas, ubicaciones, categorias, subcategorias });
 })
 
 router.post('/verificar', (req, res) => {
 
     const { dni, nombre } = req.body;
 
-    console.log(nombre);
-
-    if (dni == '1' && nombre == 'persona') {
-
-        res.redirect('seleccionado');
-    } else {
-
-        res.redirect('noseleccionado');
-    }
+    res.redirect('seleccionado');
 })
 
 router.post('/login', (req, res, next) => {
-    //falta arregalarlo a router
     const { username, password } = req.body;
 
     passport.authenticate('local.signin', {
-        successRedirect: '/dashboard',
-        failureRedirect: '/',
-        failureFlash: false,
-        session: false
+        successRedirect: '/admin',
+        failureRedirect: '/login',
+        failureFlash: true
     })(req, res, next);
 
 });

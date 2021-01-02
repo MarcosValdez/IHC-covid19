@@ -48,10 +48,10 @@ passport.use('local.signup', new LocalStrategy({
 
 passport.serializeUser((user, done) => {
     console.log('serializeUser', user);
-    done(null, user.id);
+    done(null, user.id_admin);
 });
 
 passport.deserializeUser(async(id, done) => {
-    const rows = await pool.query('SELECT * FROM ADMINISTRADOR WHERE id_admin = ?', [id.id_admin]);
+    const rows = await pool.query('SELECT * FROM ADMINISTRADOR WHERE id_admin = ?', [id]);
     done(null, rows[0]);
 });
