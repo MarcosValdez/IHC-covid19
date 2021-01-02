@@ -5,16 +5,30 @@ body {
     justify-content: space-between;
 }
 
+.vacio {
+    height: 65px;
+}
+
+.contenedor {
+    display: flex;
+    width: 80%;
+    margin: auto;
+    box-shadow: 7px 13px 37px gray;
+    border-radius: 2%;
+}
+
+.imagen {
+    width: 50%;
+    background: #000;
+}
+
+.imagen img {
+    width: 100%;
+}
+
 label {
     margin: 0;
     padding: 0;
-}
-
-h1 {
-    background: tomato;
-    height: 450px;
-    padding: 150px 0;
-    margin-bottom: 50px;
 }
 
 p {
@@ -25,31 +39,41 @@ p {
 #form-verificar {
     background-color: #fafafa;
     padding: 20px;
-    width: 460px;
+    width: 50%;
     height: 450px;
     margin: auto;
-    box-shadow: 7px 13px 37px gray;
-    border-radius: 2%;
     font-size: 21px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    align-items: center;
 }
 
 .content {
     width: 100%;
     margin: 0px auto;
     display: flex;
+    flex-direction: column;
     justify-content: space-around;
     align-items: center;
-}
-
-.in {
-    width: 120px;
+    text-align: center;
 }
 
 .input {
-    width: 200px;
+    width: 80%;
+}
+
+.cab {
+    width: 95%;
+    background: #6286FB;
+}
+
+.titulo-cab {
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    padding: 30px auto;
 }
 
 #btn-verificar {
