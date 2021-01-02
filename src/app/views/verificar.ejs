@@ -1,0 +1,69 @@
+<%- include ('partials/_header') %>
+
+    <link rel="stylesheet" href="/css/verificar.css">
+    </head>
+
+    <body>
+        <header class="menu">
+            <section id="cabecera">
+                <a id="logo" href="/">AmezagaCode</a>
+                <nav class="navbar-menu">
+                    <ul id="navitem-elemento">
+                        <li><a href="/">Inicio</a></li>
+                        <li><a id="inicio" href="verificar">Verificar</a></li>
+                        <!-- <li><a href="#">Acerca de nosotros</a></li> -->
+                        <li class="link-login-acceder"><a href="login"><i class="fas fa-sign-in-alt"></i>Acceder</a></li>
+                    </ul>
+                </nav>
+                <!-- <ul class="link-login-acceder">
+                </ul> -->
+                <div class="lines">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </section>
+
+        </header>
+        <div></div>
+        <form id="form-verificar" action="/verificar" method="post">
+
+            <h2>Verificacion del beneficio</h2>
+
+            <div class="content">
+                <label class="in" for="dni">Ingrese su DNI:</label>
+                <div>
+                    <input class="input" id="dni" type="text" maxlength="8" name="dni" autofocus>
+                    <i class="fas fa-address-card"></i>
+                </div>
+            </div>
+
+
+            <div class="content">
+                <label class="in" for="nombre">Ingrese su nombre:</label>
+                <div>
+                    <!-- <input class="input" id="nombre" type="text" name="nombre"> -->
+                    <input class="input" id="nombre" type="date" name="nombre">
+                    <i class="fas fa-address-card"></i>
+                </div>
+            </div>
+
+            <!-- <div class="content">
+                <div></div>
+                <div></div>
+                <input id="checkbox" type="checkbox">
+                <label>Acepto las <a href="#">politicas de privacidad</a></label>
+                <div></div>
+            </div> -->
+            <div class="content">
+                <h2>Captccha</h2>
+            </div>
+
+            <button class="boton" id="btn-verificar" type="submit">Verificar</button>
+
+        </form>
+
+        <%- include ('partials/_footer') %>
+
+            <!-- <script src="https://kit.fontawesome.com/d4de05ee0f.js" crossorigin="anonymous"></script> -->
+    </body>
+
+    </html>

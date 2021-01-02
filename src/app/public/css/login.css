@@ -1,0 +1,44 @@
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.login-form {
+    width: 390px;
+    box-shadow: 0px 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.login-title {
+    font-family: 'Exo', sans-serif;
+    text-align: center;
+    color: gray;
+}
+
+.login-userinput {
+    margin-bottom: 10px;
+}
+
+.login-button {
+    margin-top: 10px;
+}
+
+.login-options {
+    margin-bottom: 0px;
+}
+
+.login-forgot {
+    float: right;
+}
+
+.volver-home {
+    color: white;
+    text-decoration: none;
+    width: 100%;
+}
+
+.volver-home:hover {
+    color: white;
+    text-decoration: none;
+}
