@@ -5,7 +5,7 @@ $(document).ready(function() {
         },
         "lengthChange": false,
         "order": [],
-        "pageLength": 5
+        "pageLength": 10
     });
 });
 /* sticky menu */

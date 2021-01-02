@@ -39,7 +39,7 @@ router.get('/seleccionado', async(req, res) => {
     res.render('dashboard');
 }) */
 
-router.get('/admin', isLoggedIn, async(req, res) => {
+router.get('/dashboard', isLoggedIn, async(req, res) => {
     const personas = await pool.query('SELECT * FROM PERSONA');
     const ubicaciones = await pool.query('SELECT * FROM UBICACION');
     const categorias = await pool.query('SELECT * FROM CATEGORIA');
@@ -47,15 +47,22 @@ router.get('/admin', isLoggedIn, async(req, res) => {
     res.render('admin', { personas, ubicaciones, categorias, subcategorias });
 })
 
-router.post('/verificar', (req, res) => {
+/* router.post('/verificar', (req, res) => {
 
     const { dni, nombre } = req.body;
 
     res.redirect('seleccionado');
-})
+}) */
+
+router.post('/verificar', passport.authenticate('local.validate', {
+    successRedirect: '/seleccionado',
+    failureRedirect: '/verificar',
+    failureFash: true,
+    session: false
+}));
 
 router.post('/login', (req, res, next) => {
-    const { username, password } = req.body;
+    /* const { username, password } = req.body; */
 
     passport.authenticate('local.signin', {
         successRedirect: '/admin',

@@ -46,6 +46,37 @@ passport.use('local.signup', new LocalStrategy({
     return done(null, newUser);
 }));
 
+passport.use('local.validate', new LocalStrategy({
+    usernameField: 'username',
+    passwordField: 'password',
+    passReqToCallback: true
+}, async(req, username, password, done) => {
+    console.log(12414124);
+    const rows = await pool.query('SELECT * FROM PERSONA WHERE dni = ?', [username]);
+    console.log(username);
+    if (rows.length > 0) {
+        const user = rows[0];
+        if (user.fecha_emision == password) {
+            validPassword = true;
+        } else {
+            validPassword = false;
+        }
+
+        if (validPassword) {
+            console.log('Welcome');
+            //madar el nombre  a la pantalla
+            done(null, user, req.flash('success', 'Welcome ' + user.username));
+        } else {
+            console.log("no");
+            done(null, false, req.flash('validate', 'Fecha de emision no valida, vuelva a ingresar los datos'));
+        }
+    } else {
+        console.log("no existe");
+        return done(null, false, req.flash('validate', 'El DNI no existe, vuelva a ingresar los datos'));
+    }
+}));
+
+
 passport.serializeUser((user, done) => {
     console.log('serializeUser', user);
     done(null, user.id_admin);
