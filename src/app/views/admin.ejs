@@ -1,0 +1,118 @@
+<%- include ('partials/_header') %>
+    <link rel="stylesheet" href="/css/categoria.css">
+
+    </head>
+
+    <body>
+        <!-- partial:index.partial.html -->
+        <header class="menu">
+            <section id="cabecera">
+                <div class="menu2">
+                    <a id="logo" href="/">AmezagaCode</a>
+                    <div class="lines hamburger" id="hamburger">
+                        <i class="fas fa-bars"></i>
+                    </div>
+                </div>
+
+
+                <nav class="navbar-menu nav-ul" id="nav-ul">
+                    <ul id="navitem-elemento" class="nav-ul">
+                        <li>
+                            <a href="/">Inicio</a>
+                        </li>
+                        <li>
+                            <a href="verificar">Verificar</a>
+                        </li>
+                        <li class="link-login-acceder">
+                            <a href="/logout">Logout </a>
+                        </li>
+                    </ul>
+                </nav>
+            </section>
+
+        </header>
+        <div class="vacio"></div>
+        <table>
+            <thead>
+                <tr>
+                    <th>DNI</th>
+                    <th>Nombres</th>
+                    <th>Categoria</th>
+                    <th>Subcategoria</th>
+                    <th>Estado</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td data-column="DNI">70934491</td>
+                    <td data-column="Nombres">Frank</td>
+                    <td data-column="Categoria">Ingenieria</td>
+                    <td data-column="Subcategoria">Software</td>
+                    <td data-column="Estado">No Vacunado</td>
+                </tr>
+                <tr>
+                    <td data-column="DNI">12345678</td>
+                    <td data-column="Nombres">Nagy</td>
+                    <td data-column="Categoria">Salud</td>
+                    <td data-column="Subcategoria">Psicologia</td>
+                    <td data-column="Estado">No Vacunado</td>
+                </tr>
+                <tr>
+                    <td data-column="DNI">98765432</td>
+                    <td data-column="Nombres">Biro</td>
+                    <td data-column="Categoria">Alimenticio</td>
+                    <td data-column="Subcategoria">Puericultor</td>
+                    <td data-column="Estado">No Vacunado</td>
+                </tr>
+                <tr>
+                    <td data-column="DNI">15975364</td>
+                    <td data-column="Nombres">Mastah</td>
+                    <td data-column="Categoria">Acedemico</td>
+                    <td data-column="Subcategoria">Sociologia</td>
+                    <td data-column="Estado">Vacunado</td>
+                </tr>
+            </tbody>
+        </table>
+        <!-- partial -->
+
+        <!-- Codigo cuando haya data -->
+        <!-- Descomentar en router tambien la consulta a la DB -->
+
+
+        <!--  <table id="data" class="table">
+            <thead>
+                <tr>
+                    <th>DNI</th>
+                    <th>Nombres</th>
+                    <th>Categoria</th>
+                    <th>Subcategoria</th>
+                    <th>Estado</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <% for (let i=0; i < 0; i++){ %>
+                    <tr>
+                        <td>
+                            <%= personas[i].dni %>
+                        </td>
+                        <td>
+                            <%= personas[i].nombre %>
+                        </td>
+                        <td>
+                            <%= personas[i].id_subcategoria %>
+                        </td>
+                        <td>
+                            <%= personas[i].id_subcategoria %>
+                        </td>
+                        <td>
+                            <%= personas[i].estado %>
+                        </td>
+                    </tr>
+                    <% } %>
+            </tbody>
+        </table> 
+ -->
+    </body>
+
+    </html>
