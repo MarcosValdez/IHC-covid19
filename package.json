@@ -22,7 +22,14 @@
     "morgan": "^1.10.0",
     "mysql": "^2.18.1",
     "passport": "^0.4.1",
-    "passport-local": "^1.0.0"
+    "passport-local": "^1.0.0",
+    "country-code-lookup": "0.0.17",
+    "mapbox-gl": "^1.9.0",
+    "node-sass": "^4.13.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-scripts": "3.4.1",
+    "swr": "^0.1.18"
   },
   "devDependencies": {
     "nodemon": "^2.0.6"
