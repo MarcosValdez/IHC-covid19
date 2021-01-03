@@ -280,6 +280,11 @@ h2 {
     padding: 60px 10%;
 }
 
+.mapboxgl-ctrl-logo {
+    display: none;
+    background: transparent;
+}
+
 
 /* Responsive */
 
