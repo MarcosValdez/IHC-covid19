@@ -1,7 +1,8 @@
 <%- include ('partials/_header') %>
 
     <link rel="stylesheet" href="/css/index.css">
-
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v2.0.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v2.0.0/mapbox-gl.css' rel='stylesheet' />
     </head>
 
     <body>
@@ -40,8 +41,9 @@
                 </div>
 
                 <div id='map'></div>
+                
             </section>
-
+            <div id='mapHospitales'></div>
             <br>
             <br>
             <br>
@@ -87,6 +89,7 @@
 
                 <script src="https://cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"></script>
                 <script src="index.js"></script>
+                <script src="public/mapa.js"></script>
 
     </body>
 
