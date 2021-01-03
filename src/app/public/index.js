@@ -32,8 +32,8 @@ var mapHospitales = new mapboxgl.Map({
     zoom: 4
   });
   // code from the next step will go here
-  map.on('click', function(e) {
-  var features = map.queryRenderedFeatures(e.point, {
+  mapHospitales.on('click', function(e) {
+  var features = mapHospitales.queryRenderedFeatures(e.point, {
   layers: ['hospitales (1)'] // replace this with the name of the layer
   });
   
@@ -46,5 +46,5 @@ var mapHospitales = new mapboxgl.Map({
   var popup = new mapboxgl.Popup({ offset: [0, -15] })
   .setLngLat(feature.geometry.coordinates)
   .setHTML('<h3>' + feature.properties.title + '</h3><p>' + feature.properties.description + '</p>')
-  .addTo(map);
+  .addTo(mapHospitales);
   });
