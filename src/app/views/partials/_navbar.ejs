@@ -16,9 +16,14 @@
                 <li>
                     <a id="<%= dos %>" href="verificar">Verificar</a>
                 </li>
-                <li class="link-login-acceder">
-                    <a id="<%= tres %>" href="login">Acceder </a>
-                </li>
+                <% if (uno == 'inicio') { %>
+                    <li>
+                        <a href="#hospital">Hospitales</a>
+                    </li>
+                    <% } %>
+                        <li class="link-login-acceder">
+                            <a id="<%= tres %>" href="login">Acceder </a>
+                        </li>
             </ul>
         </nav>
     </section>
