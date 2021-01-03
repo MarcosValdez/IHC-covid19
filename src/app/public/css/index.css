@@ -23,6 +23,14 @@
     margin: 20px auto;
 }
 
+#mapHospitales {
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    width: 500px;
+    height: 500px;
+  }
+
 .social-btns .btn,
 .social-btns .btn:before,
 .social-btns .btn .fa {
