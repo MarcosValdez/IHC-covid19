@@ -17,4 +17,14 @@
     #footer {
         text-align: center;
     }
+    #footer div {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 300px) {
+    #footer div {
+        font-size: 12px;
+        width: 90%;
+    }
 }
