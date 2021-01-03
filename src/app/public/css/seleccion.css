@@ -11,13 +11,14 @@ body {
 
 .seleccionado {
     font-family: 'Exo', sans-serif;
-    width: 700px;
+    align-self: center;
+    width: 60%;
     border-style: solid;
     border-color: rgb(0, 0, 0);
     border-width: 2%;
     padding: 2%;
-    padding-top: 3%;
-    margin: 100px auto;
+    padding-top: 5%;
+    margin: 10%;
     padding-bottom: 3%;
     background: rgb(241, 241, 241);
 }
@@ -44,12 +45,25 @@ body {
     font-size: 20px;
 }
 
-.mapa-hospital {
+#mapa-hospital {
     margin: auto;
     margin-top: 20px;
-    border: 1px solid black;
+    border: 2px solid black;
 }
 
-.mapa-hospital iframe {
-    margin-left: 20px;
+@media screen and (max-width: 768px) {
+    .seleccionado {
+        width: 80%;
+        margin-top: 20%;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .seleccionado {
+        width: 95%;
+        margin-top: 25%;
+    }
+    .datos {
+        padding-left: 5%;
+    }
 }
