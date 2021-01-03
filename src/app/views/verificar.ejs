@@ -1,0 +1,54 @@
+<%- include ('partials/_header') %>
+
+    <link rel="stylesheet" href="/css/verificar.css">
+    </head>
+
+    <body>
+        <%- include ('partials/_navbar',{uno:'', dos: 'inicio', tres: ''}) %>
+
+            <div class="vacio"></div>
+            <% if (validate != '') { %>
+                <div class="mensaje-error" id="mensaje">
+                    <%= validate %>
+                        <button id="btn">Cerrar</button>
+                </div>
+
+
+                <% } %>
+                    <div class="contenedor">
+                        <div class="imagen">
+                            <img src="/images/covid3.jpg" alt="">
+                        </div>
+                        <form id="form-verificar" action="/verificar" method="post">
+
+                            <div class="cab">
+                                <span class="titulo-cab">Consulte si es beneficiario de la vacuna</span>
+                            </div>
+
+                            <div class="content">
+                                <label for="dni">Ingrese el DNI: </label>
+                                <input class="input" id="dni" type="text" maxlength="8" name="username" autofocus placeholder="DNI" required>
+
+                            </div>
+
+
+                            <div class="content">
+                                <label for="nombre">Ingrese la fecha de emision</label>
+                                <input class="input" id="nombre" type="date" name="password" placeholder="Fecha de emision" required>
+
+                            </div>
+
+                            <div class="content">
+                                <p>Captccha</p>
+                            </div>
+
+                            <button class="boton" id="btn-verificar" type="submit">Verificar</button>
+
+                        </form>
+                    </div>
+
+                    <%- include ('partials/_footer') %>
+
+    </body>
+
+    </html>
