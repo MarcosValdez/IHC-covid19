@@ -1,3 +1,16 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
+
+
+ReactDOM.render(
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>,
+    document.getElementById('root')
+  );
+
+
 const express = require('express');
 const morgan = require('morgan');
 const path = require('path');
@@ -12,7 +25,7 @@ const app = express();
 
 require('./app/lib/passport');
 
-app.set('port', process.env.PORT || 3000);
+app.set('port', process.env.PORT || 3001);
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, './app/views'));
 
