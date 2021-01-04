@@ -56,12 +56,15 @@ passport.use('local.validate', new LocalStrategy({
     console.log(username);
     if (rows.length > 0) {
         const user = rows[0];
-        if (user.fecha_emision == password) {
-            validPassword = true;
-        } else {
-            validPassword = false;
-        }
+        console.log(user)
+        const fec = user.fecha_emision.toLocaleDateString();
+        console.log((user.fecha_emision.toLocaleDateString()));
+        console.log((password));
+        validPassword = false;
+        if (password[0] == fec[5]) {
 
+            validPassword = true;
+        }
         if (validPassword) {
             console.log('Welcome');
             //madar el nombre  a la pantalla

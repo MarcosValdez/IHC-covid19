@@ -51,17 +51,15 @@ CREATE TABLE SUBCATEGORIA
 
 CREATE TABLE PERSONA
 (
-	dni          INTEGER NOT NULL PRIMARY KEY,
+	dni          CHAR(8) NOT NULL PRIMARY KEY,
 	nombre     VARCHAR(20) NULL,
 	apellido    VARCHAR(20) NULL,
 	estado    boolean NULL,
 	edad INTEGER null,
 	fecha_emision date null,
 	id_hospital          INTEGER NULL,
-	id_ubicacion         INTEGER NULL,
 	id_subcategoria      INTEGER NULL,
 	FOREIGN KEY (id_hospital) REFERENCES HOSPITAL (id_hospital),
-	FOREIGN KEY (id_ubicacion) REFERENCES UBICACION (id_ubicacion),
 	FOREIGN KEY (id_subcategoria) REFERENCES SUBCATEGORIA (id_subcategoria)
 );
 
