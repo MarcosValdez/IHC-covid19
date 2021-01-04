@@ -33,7 +33,7 @@ passport.use('local.signup', new LocalStrategy({
     passReqToCallback: true
 }, async(req, username, password, done) => {
     const { type } = req.body;
-    console.log(req.body);
+
     const newUser = {
         nombre_admin: username,
         password,
@@ -41,7 +41,7 @@ passport.use('local.signup', new LocalStrategy({
     };
     newUser.password = await helpers.encryptPassword(password);
     const result = await pool.query('INSERT INTO ADMINISTRADOR SET ?', [newUser]);
-    console.log(result);
+
     newUser.id = result.insertId;
     return done(null, newUser);
 }));
@@ -51,37 +51,63 @@ passport.use('local.validate', new LocalStrategy({
     passwordField: 'password',
     passReqToCallback: true
 }, async(req, username, password, done) => {
-    console.log(12414124);
+
     const rows = await pool.query('SELECT * FROM PERSONA WHERE dni = ?', [username]);
-    console.log(username);
+
     if (rows.length > 0) {
         const user = rows[0];
-        console.log(user)
         const fec = user.fecha_emision.toLocaleDateString();
-        console.log((user.fecha_emision.toLocaleDateString()));
-        console.log((password));
-        validPassword = false;
-        if (password[0] == fec[5]) {
+        let primeraFecha = [],
+            segundaFecha = [],
+            aux = '';
+        for (let i = 0; i < password.length; i++) {
+            if (i == 4) {
+                primeraFecha.push(aux);
+                aux = '';
+            } else if (i == 7) {
+                primeraFecha.push(aux);
+                aux = '';
+            } else {
+                aux += password[i];
+            }
+        }
+        primeraFecha.push(aux);
+        aux = '';
+        let t = 0;
+        for (let i = 0; i < fec.length; i++) {
+            if (fec[i] == '/') {
+                if (t == 1) {
+                    aux = '0'.concat(aux);
+                }
+                t = 0;
+                segundaFecha.push(aux);
+                aux = '';
+            } else {
+                aux += fec[i];
+                t++;
+            }
+        }
+        if (t == 1) {
+            aux = '0'.concat(aux);
+        }
+        segundaFecha.push(aux);
 
+        validPassword = false;
+        if (primeraFecha[0] == segundaFecha[2] && primeraFecha[1] == segundaFecha[1] && primeraFecha[2] == segundaFecha[0]) {
             validPassword = true;
         }
         if (validPassword) {
-            console.log('Welcome');
-            //madar el nombre  a la pantalla
-            done(null, user, req.flash('success', 'Welcome ' + user.username));
+            done(null, user, req.flash('success', [user.dni, user.id_hospital]));
         } else {
-            console.log("no");
             done(null, false, req.flash('validate', 'Fecha de emision no valida, vuelva a ingresar los datos'));
         }
     } else {
-        console.log("no existe");
         return done(null, false, req.flash('validate', 'El DNI no existe, vuelva a ingresar los datos'));
     }
 }));
 
 
 passport.serializeUser((user, done) => {
-    console.log('serializeUser', user);
     done(null, user.id_admin);
 });
 

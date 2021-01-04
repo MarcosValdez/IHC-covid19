@@ -14,6 +14,10 @@
                         <i class="far fa-check-circle"></i>
                     </div>
                     HAS SIDO SELECCIONADO
+                    <% if (success != '') { %>
+                        PERSONA CON DNI
+                        <%= success[0]  %>
+                            <% } %>
                 </div>
                 <div class="datos">
                     <div class="row">
@@ -21,7 +25,7 @@
                             Nombre del Hospital:
                         </div>
                         <div class="col">
-                            <%= resultado[0].nombre_hospital %>
+                            <%= resultado[success[1] - 1].nombre_hospital %>
                         </div>
                     </div>
                     <div class="row">
@@ -29,7 +33,7 @@
                             Direccion:
                         </div>
                         <div class="col">
-                            <%= resultado[0].direccion_hospital %>
+                            <%= resultado[success[1] - 1].direccion_hospital %>
                         </div>
                     </div>
                     <div class="row">
@@ -37,7 +41,7 @@
                             Telefono:
                         </div>
                         <div class="col">
-                            <%= resultado[0].telefono_paciente %>
+                            <%= resultado[success[1] - 1].telefono_paciente %>
                         </div>
                     </div>
                     <!-- <div class="row">
@@ -50,7 +54,7 @@
             </div> -->
                 </div>
                 <div id="mapa-hospital">
-                    <iframe src=<%=resultado[0].mapa %> width="100%" height="450" frameborder="0"
+                    <iframe src=<%=resultado[success[1] - 1].mapa %> width="100%" height="450" frameborder="0"
                     style="border:0;"allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
                 </div>
             </div>
