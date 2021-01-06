@@ -12,9 +12,9 @@ CREATE TABLE ADMINISTRADOR
 CREATE TABLE UBICACION
 (
 	id_ubicacion         INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
-	departemento         VARCHAR(20) NULL,
-	distritio            VARCHAR(20) NULL,
-	provincia            VARCHAR(20) NULL
+	departemento         VARCHAR(50) NULL,
+	distritio            VARCHAR(50) NULL,
+	provincia            VARCHAR(50) NULL
 );
 
 
