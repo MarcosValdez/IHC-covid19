@@ -52,7 +52,10 @@ passport.use('local.validate', new LocalStrategy({
     passReqToCallback: true
 }, async(req, username, password, done) => {
 
-    const rows = await pool.query('SELECT * FROM PERSONA WHERE dni = ?', [username]);
+    /* const rows = await pool.query('SELECT * FROM PERSONA WHERE dni = ?', [username]); */
+    const rows = await pool.query("SELECT P.dni, P.nombre, P.apellido, P.edad, P.fecha_emision, S.nombre_subcategoria, C.nombre_categoria FROM PERSONA P JOIN SUBCATEGORIA S ON (P.id_subcategoria=S.id_subcategoria) JOIN CATEGORIA C ON (S.id_categoria=C.id_categoria) WHERE C.nombre_categoria='Fuerza Aerea' or C.nombre_categoria='Ejercito' or C.nombre_categoria='Marina' or C.nombre_categoria='Salud' or C.nombre_categoria='Fuerzas Policiales' or P.edad>=60;", [username]);
+
+    console.log(rows);
 
     if (rows.length > 0) {
         const user = rows[0];
