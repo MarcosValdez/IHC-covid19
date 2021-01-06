@@ -1,9 +1,7 @@
 <%- include ('partials/_header') %>
 
-    <link rel="stylesheet" href="/css/index.css">
-    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v2.0.0/mapbox-gl.js'>
-    </script>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v2.0.0/mapbox-gl.css' rel='stylesheet' />
+    <link rel="stylesheet" href="/css/index.css">
     </head>
 
     <body>
@@ -44,8 +42,27 @@
                 <div id='map'></div>
 
             </section>
+            <br>
+            <br>
+            <br>
+            <section class="main-content res-2">
 
-            <div id='mapHospitales'></div>
+                <div id='mapHospitales'></div>
+
+                <div id="contenido">
+                    <div>
+                        <h2>Centros de vacunacion</h2>
+                    </div>
+
+                    <div>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, libero officiis nemo praesentium doloremque atque facilis cupiditate corporis maxime ullam. Ipsa debitis aspernatur ut amet nostrum a quod impedit eveniet! Lorem ipsum dolor sit amet consectetur
+                            adipisicing elit. Ipsum, tempore quia aliquam deleniti vitae ipsam ratione voluptate. Omnis libero suscipit assumenda at quisquam et deserunt quod expedita sequi, quia eligendi!
+                        </p>
+                    </div>
+                </div>
+
+            </section>
 
             <br id="hospital">
             <br>
@@ -60,8 +77,8 @@
                     <thead>
                         <tr>
                             <th class="th-sm">Hospital</th>
-                            <th class="th-sm">Direccion</th>
-                            <th class="th-sm">Telefono</th>
+                            <th class="th-sm ocultar-responsive">Direccion</th>
+                            <th class="th-sm ocultar-responsive-2">Telefono</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -71,10 +88,10 @@
                                 <td>
                                     <%= resultado[i].nombre_hospital %>
                                 </td>
-                                <td>
+                                <td class="ocultar-responsive">
                                     <%= resultado[i].direccion_hospital %>
                                 </td>
-                                <td>
+                                <td class="ocultar-responsive-2">
                                     <%= resultado[i].telefono_paciente %>
                                 </td>
                             </tr>
@@ -86,9 +103,10 @@
             <%- include ('partials/_footer') %>
 
 
+                <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v2.0.0/mapbox-gl.js'></script>
+                <script src='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
                 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
                 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js"></script>
-                <script src='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
 
                 <script src="https://cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"></script>
                 <script src="index.js"></script>

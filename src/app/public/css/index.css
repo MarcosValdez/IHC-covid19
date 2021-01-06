@@ -17,19 +17,21 @@
     margin-bottom: 50px;
 }
 
-#map {
+#map,
+#mapHospitales {
     width: 700px;
     height: 500px;
     margin: 20px auto;
 }
 
-#mapHospitales {
+
+/* #mapHospitales {
     margin: auto;
     top: 0;
     bottom: 0;
     width: 500px;
     height: 500px;
-}
+} */
 
 .social-btns .btn,
 .social-btns .btn:before,
@@ -280,9 +282,12 @@ h2 {
     padding: 60px 10%;
 }
 
-.mapboxgl-ctrl-logo {
+a.mapboxgl-ctrl-logo {
     display: none;
-    background: transparent;
+}
+
+.mapboxgl-ctrl-attrib {
+    display: none;
 }
 
 
@@ -294,11 +299,20 @@ h2 {
         margin: auto;
         flex-direction: column;
     }
+    .res-2 {
+        flex-direction: column-reverse;
+    }
     #contenido {
         margin: auto;
     }
     .more-link {
         width: 50%;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .ocultar-responsive-2 {
+        display: none;
     }
 }
 
@@ -312,13 +326,18 @@ h2 {
         width: 90%;
         margin: auto;
     }
-    #map {
+    #map,
+    #mapHospitales {
         width: 80%;
+    }
+    .ocultar-responsive {
+        display: none;
     }
 }
 
 @media screen and (max-width: 550px) {
-    #map {
+    #map,
+    #mapHospitales {
         width: 340px;
         height: 500px;
     }
@@ -333,14 +352,16 @@ h2 {
 }
 
 @media screen and (max-width: 350px) {
-    #map {
+    #map,
+    #mapHospitales {
         width: 300px;
         height: 500px;
     }
 }
 
 @media screen and (max-width: 300px) {
-    #map {
+    #map,
+    #mapHospitales {
         width: 90%;
     }
     #parrafo {
