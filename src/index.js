@@ -51,4 +51,5 @@ app.use(function(req, res, next) {
 
 app.listen(app.get('port'), () => {
     console.log('Server on port ', app.get('port'));
+    console.log(`http://localhost:${app.get('port')}`)
 });
