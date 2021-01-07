@@ -11,12 +11,18 @@
             <% if (validate != '') { %>
                 <div class="mensaje-error" id="mensaje">
                     <%= validate %>
-                        <button id="btn">Cerrar</button>
+                        <button id="btn">X</button>
                 </div>
                 <% } %>
                     <div class="contenedor">
                         <div class="imagen">
                             <img src="/images/covid3.jpg" alt="">
+                            <div id="grupowarning">
+                                <p class="warning"><i class="fas fa-exclamation-triangle"></i> No comparta tu informacion personal.</p>
+                                <p class="warning"><i class="fas fa-exclamation-triangle"></i> No aceptes ayuda de grupos de redes sociales.</p>
+                                <p class="warning"><i class="fas fa-exclamation-triangle"></i> No hagas caso de llamadas, mensajes o correos fraudulentos.</p>
+                            </div>
+
                         </div>
                         <form id="form-verificar" action="/verificar" method="post">
 
