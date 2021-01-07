@@ -5,10 +5,10 @@
     </head>
 
     <body>
-        <%- include ('partials/_navbar',{uno:'', dos: 'inicio', tres: ''}) %>
+        <%- include ('partials/_navbar',{uno:'', dos: 'inicio' , tres: '' }) %>
 
             <div class="vacio"></div>
-            <% if (validate != '') { %>
+            <% if (validate !='' ) { %>
                 <div class="mensaje-error" id="mensaje">
                     <%= validate %>
                         <button id="btn">Cerrar</button>
@@ -26,14 +26,16 @@
 
                             <div class="content">
                                 <label for="dni">Ingrese el DNI: </label>
-                                <input class="input" id="dni" type="text" maxlength="8" name="username" autofocus placeholder="DNI" autocomplete="off" required>
+                                <input class="input" id="dni" type="text" maxlength="8" name="username" autofocus
+                                    placeholder="DNI" autocomplete="off" required>
 
                             </div>
 
 
                             <div class="content">
                                 <label for="nombre">Ingrese la fecha de emision</label>
-                                <input class="input" id="nombre" type="date" name="password" placeholder="Fecha de emision" required>
+                                <input class="input" id="nombre" type="date" name="password"
+                                    placeholder="Fecha de emision" required>
 
                             </div>
 
@@ -47,6 +49,9 @@
                     </div>
 
                     <%- include ('partials/_footer') %>
+
+
+                        
 
     </body>
 
