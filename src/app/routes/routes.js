@@ -2,6 +2,7 @@
 const path = require('path');
 const express = require('express');
 const passport = require('passport');
+
 const router = express.Router();
 const pool = require('../../config/database');
 const { isLoggedIn, isNotLoggedIn } = require('../lib/auth');
@@ -54,12 +55,38 @@ router.get('/dashboard', isLoggedIn, async(req, res) => {
     res.redirect('seleccionado');
 }) */
 
-router.post('/verificar', passport.authenticate('local.validate', {
-    successRedirect: '/seleccionado',
-    failureRedirect: '/verificar',
-    failureFash: true,
-    session: false
-}));
+router.post('/verificar', (req, res, next) => {
+
+    /* console.log(req.body); */
+
+    /* if (req.body['g-recaptcha-response'] === undefined || req.body['g-recaptcha-response'] === '' || req.body['g-recaptcha-response'] === null) {
+        res.render('verificar')
+        return res.json({ "responseError": "something goes to wrong" });
+    }
+    const secretKey = "6Lehlh4aAAAAAIVBY7LYIR1lRub1is89RB156d3s";
+
+    const verificationURL = "https://www.google.com/recaptcha/api/siteverify?secret=" + secretKey + "&response=" + req.body['g-recaptcha-response'] + "&remoteip=" + req.connection.remoteAddress;
+
+    request(verificationURL, function(error, response, body) {
+        body = JSON.parse(body);
+
+        if (body.success !== undefined && !body.success) {
+            return res.json({ "responseError": "Failed captcha verification" });
+            res.render('/verificar')
+        }
+        res.json({ "responseSuccess": "Sucess" });
+
+        console.log("viewoviewbnvibewvoibewvoibwev");
+    });
+ */
+    passport.authenticate('local.validate', {
+        successRedirect: '/seleccionado',
+        failureRedirect: '/verificar',
+        failureFash: true,
+        session: false
+    })(req, res, next);
+
+});
 
 router.post('/login', (req, res, next) => {
     /* const { username, password } = req.body; */
@@ -70,6 +97,24 @@ router.post('/login', (req, res, next) => {
         failureFlash: true
     })(req, res, next);
 
+});
+
+router.post('/captcha', (req, res) => {
+    if (req.body === undefined || req.body === '' || req.body === null) {
+        return res.json({
+            "responseError": "captcha error "
+        });
+    }
+    const secretKey = "6Lehlh4aAAAAAIVBY7LYIR1lRub1is89RB156d3s";
+    const verificationURL = "https://www.google.com/recaptcha/api/siteverify?secret=" + secretKey + "&response=" + req.body + "&remoteip=" + req.connection.remoteAddress;
+    request(verificationURL, function(error, response, body) {
+        body = JSON.parse(body);
+        if (body.success !== undefined && !body.success) {
+            return res.json({ "responseError": "Failed captcha verification" });
+        }
+        console.log("Funciona")
+        res.json({ "responseSuccess": "Sucess" });
+    });
 });
 
 router.get('/logout', (req, res) => {
