@@ -124,7 +124,8 @@
 
 .responsive-banner {
     margin: 0px auto 50px;
-    padding-top: 50px;
+    /* margin-top: 100px; */
+    padding-top: 100px;
     width: 100%;
     min-width: 230px;
     max-width: 1366px;
@@ -206,6 +207,7 @@ span:before {
 }
 
 #parrafo {
+    text-align: center;
     clear: both;
     font-family: 'Work Sans', Helvetica, sans-serif;
     text-transform: none;
@@ -227,7 +229,7 @@ span:before {
 .more-link {
     background: rgba(255, 255, 255, 0.35);
     height: 50px;
-    width: 500px;
+    width: 20%;
     margin: auto;
     margin-top: 50px;
     text-align: center;
@@ -235,23 +237,15 @@ span:before {
     display: flex;
     flex-direction: column;
     justify-content: center;
-}
-
-.more-link a {
-    color: #fff;
-    font-size: 1.5rem;
-    display: inline-block;
-    width: 100%;
-    text-decoration: none;
     color: black;
+    font-size: 1.5rem;
 }
 
 .more-link:hover {
-    background: #000;
-}
-
-.more-link a:hover {
-    color: white;
+    transition: cubic-bezier(1, 0, 0, 1);
+    transform: scale(1.05, 1.05);
+    text-decoration: none;
+    color: black;
 }
 
 

@@ -8,21 +8,39 @@
 
         <%- include ('partials/_navbar',{uno:'inicio', dos: '', tres: ''}) %>
 
-            <aside class="responsive-banner z">
-                <span class="circle-a z"></span>
-                <span class="circle-b z"></span>
-                <div class="container-envelope z">
+            <aside class="responsive-banner">
+                <span class="circle-a"></span>
+                <span class="circle-b"></span>
 
-                    <div class="col-xs-12 z">
-                        <p id="parrafo" class="animate__animated animate__bounce z">Verifique aqui si usted es beneficiario para la vacuna
+
+                <!--<div class="col-xs-12">
+                        <p id="parrafo" class="animate__animated animate__bounce">Verifique aqui si usted es beneficiario para la vacuna
                         </p>
-                        <div class="more-link btncss z">
-                            <a href="verificar"> Verificar </a>
+                        <a href="verificar" class="more-link" > Verificar </a>
+                    </div>-->
+                <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <p id="parrafo" class="animate__animated animate__bounce">Verifique aqui si usted es beneficiario para la vacuna
+                            </p>
+                            <a href="verificar" class="more-link"> Verificar </a>
                         </div>
-
+                        <div class="carousel-item">
+                            <p id="parrafo" class="animate__animated animate__bounce">Verifique aqui el mapa de contagiados en el Perú
+                            </p>
+                            <a href="verificar" class="more-link"> Mapa </a>
+                        </div>
                     </div>
-
+                    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
                 </div>
+
             </aside>
 
             <section class="main-content">
@@ -62,7 +80,7 @@
                             En este mapa usted puede visualizar la ubicacion de los hospitales que actuarán como centros de vacunación contra el COVID-19. Seleccione un icono de jeringa en el mapa para saber la dirección del hospital seleccionado.
                         </p>
                         <p>
-                            Si desea información mas detallada acerca de los hospitales elegidos, o buscar directamente el nombre de algun hospital, puede hechar un vistaso a la lista que brindamos mas abajo
+                            Si desea información mas detallada acerca de los hospitales elegidos, o buscar directamente el nombre de algun hospital, puede hechar un vistaso a la lista que brindamos mas abajo.
                         </p>
                     </div>
                 </div>
