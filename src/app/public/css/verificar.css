@@ -20,6 +20,7 @@ body {
 
 .vacio {
     height: 65px;
+    margin-top: 9%;
 }
 
 .contenedor {
@@ -76,13 +77,6 @@ p {
 }
 
 .content {
-    /* width: 100%;
-    margin: 0px auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    text-align: center; */
     width: 80%;
     margin: 0px auto;
     display: flex;
@@ -165,4 +159,38 @@ p {
 
 .cerrar {
     display: none;
+}
+
+.contenedor{
+    margin-top: 5%;
+    margin-bottom: 2%;
+}
+
+
+@media screen and (max-width: 768px) {
+
+    #form-verificar{
+        width: 70%;
+    }
+
+    .input{
+        width: 70%;
+    }
+
+    .cab {
+        width: 100%;
+        background: #6286FB;
+        border-radius: 10px;
+        text-align: center;
+    }
+
+    .contenedor{
+        flex-direction: column-reverse;
+        flex-wrap: wrap;
+    }
+
+    .imagen{
+        width: 95%;
+        margin: auto;
+    }
 }
