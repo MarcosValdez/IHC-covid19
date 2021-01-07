@@ -1,0 +1,448 @@
+.main-content {
+    width: 70%;
+    margin: auto;
+    display: flex;
+}
+
+#contenido {
+    /* text-align: justify; */
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-evenly; */
+    width: 80%;
+    margin: 80px 50px;
+}
+
+#contenido h2 {
+    margin-bottom: 50px;
+}
+
+#map,
+#mapHospitales {
+    width: 700px;
+    height: 500px;
+    margin: 20px auto;
+}
+
+
+/* #mapHospitales {
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    width: 500px;
+    height: 500px;
+} */
+
+.social-btns .btn,
+.social-btns .btn:before,
+.social-btns .btn .fa {
+    -webkit-transition: all 0.35s;
+    transition: all 0.35s;
+    -webkit-transition-timing-function: cubic-bezier(0.31, -0.105, 0.43, 1.59);
+    transition-timing-function: cubic-bezier(0.31, -0.105, 0.43, 1.59);
+}
+
+.social-btns .btn:before {
+    top: 90%;
+    left: -110%;
+}
+
+.social-btns .btn .fa {
+    -webkit-transform: scale(0.8);
+    transform: scale(0.8);
+}
+
+.social-btns .btn.facebook:before {
+    background-color: #3b5998;
+}
+
+.social-btns .btn.facebook .fa {
+    color: #3b5998;
+}
+
+.social-btns .btn.twitter:before {
+    background-color: #3cf;
+}
+
+.social-btns .btn.twitter .fa {
+    color: #3cf;
+}
+
+.social-btns .btn:focus:before,
+.social-btns .btn:hover:before {
+    top: -10%;
+    left: -10%;
+}
+
+.social-btns .btn:focus .fa,
+.social-btns .btn:hover .fa {
+    color: #fff;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+}
+
+.social-btns {
+    height: 90px;
+    margin: auto;
+    font-size: 0;
+    text-align: right;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.social-btns .btn {
+    display: inline-block;
+    background-color: #fff;
+    width: 90px;
+    height: 90px;
+    line-height: 90px;
+    margin: 0 10px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    border-radius: 28%;
+    box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.1);
+    opacity: 0.99;
+}
+
+.social-btns .btn:before {
+    content: '';
+    width: 120%;
+    height: 120%;
+    position: absolute;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.social-btns .btn .fa {
+    font-size: 38px;
+    vertical-align: middle;
+}
+
+.responsive-banner {
+    margin: 0px auto 50px;
+    padding-top: 50px;
+    width: 100%;
+    min-width: 230px;
+    max-width: 1366px;
+    position: relative;
+    height: 400px;
+    min-height: 300px;
+    max-height: 768px;
+    /* border-radius: 0 0 10px 10px; */
+    overflow: hidden;
+    background-image: linear-gradient(to bottom right, #2874A6, #85C1E9);
+    background-repeat: no-repeat;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.container-envelope {
+    padding: 35px 15px;
+    color: #fff;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.col-xs-12 {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 100%;
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+    -webkit-align-self: center;
+    -ms-flex-item-align: center;
+    align-self: center;
+    text-align: center;
+}
+
+#imagen-baner {
+    max-width: 1366px;
+    max-height: 300px;
+    width: 100%;
+    position: relative;
+}
+
+span:after,
+span:before {
+    content: "";
+    position: absolute;
+    display: block;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.1);
+    width: 50px;
+    height: 50px;
+}
+
+.circle-a:before {
+    width: 500px;
+    height: 500px;
+    top: -300px;
+    left: 52%;
+    -webkit-transform: translate(-50%, 0);
+    -ms-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
+}
+
+.circle-a:after {
+    top: 160px;
+    right: 10%;
+}
+
+.circle-b:before {
+    top: 60%;
+    left: -25px;
+}
+
+.circle-b:after {
+    width: 150px;
+    height: 150px;
+    bottom: -70px;
+    right: -70px;
+}
+
+#parrafo {
+    clear: both;
+    font-family: 'Work Sans', Helvetica, sans-serif;
+    text-transform: none;
+    text-rendering: optimizeLegibility;
+    font-weight: 500;
+    line-height: 1.15;
+    word-wrap: break-word;
+    margin: 1em 0 0.5em;
+    margin: 100px;
+    padding: 0;
+    color: #fff;
+    position: relative;
+    word-wrap: break-word;
+    font-size: 20px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+
+/* .more-link {
+    background: rgba(255, 255, 255, 0.35);
+    height: 50px;
+    width: 500px;
+    margin: auto;
+    margin-top: 50px;
+    text-align: center;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.more-link a {
+    color: #fff;
+    font-size: 1.5rem;
+    display: inline-block;
+    width: 100%;
+    text-decoration: none;
+    color: black;
+}*/
+
+.more-link a {
+    font-size: 20px;
+    text-decoration: none;
+}
+
+
+/*.more-link:hover {
+    background: #000;
+}
+
+.more-link a:hover {
+    color: white;
+} */
+
+.more-link {
+    border: 1px solid #fff;
+    background: none;
+    padding: 10px 20px;
+    font-size: 20px;
+    margin: 10px auto;
+    cursor: pointer;
+    color: #3498db;
+    transition: 0.8s;
+    position: relative;
+    overflow: hidden;
+    /* width: 500px; */
+    /*     border-radius: 25px; */
+}
+
+.btncss {
+    color: #3498db;
+}
+
+.btncss:hover {
+    color: #fff;
+}
+
+
+/* .more-link a:hover {
+    color: #fff;
+} */
+
+.more-link::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 0%;
+    background: #3498db;
+    z-index: -1;
+    transition: 0.8s;
+}
+
+.btncss::before {
+    bottom: 0;
+    border-radius: 50% 50% 0 0;
+}
+
+.btncss:hover::before {
+    height: 180%;
+}
+
+h1 {
+    text-align: center;
+    margin: 30px 15px;
+}
+
+.link-container {
+    text-align: center;
+}
+
+.mapboxgl-ctrl-attrib-inner a {
+    display: none;
+}
+
+h2 {
+    /* margin: 50px auto 0; */
+    text-align: center;
+}
+
+#contenido h2 {
+    padding: 50px;
+}
+
+.table-responsive {
+    padding: 60px 10%;
+}
+
+a.mapboxgl-ctrl-logo {
+    display: none;
+}
+
+.mapboxgl-ctrl-attrib {
+    display: none;
+}
+
+
+/* Responsive */
+
+@media screen and (max-width: 1200px) {
+    .main-content {
+        width: 80%;
+        margin: auto;
+        flex-direction: column;
+    }
+    .res-2 {
+        flex-direction: column-reverse;
+    }
+    #contenido {
+        margin: auto;
+    }
+    .more-link {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 1025px) {
+    .res-2 {
+        flex-direction: column-reverse;
+    }
+    #contenido h2 {
+        margin-bottom: 0;
+    }
+}
+
+@media screen and (max-width: 769px) {
+    .main-content {
+        width: 100%;
+        margin: auto;
+        flex-direction: column;
+    }
+    .res-2 {
+        flex-direction: column-reverse;
+    }
+    #contenido {
+        width: 90%;
+        margin: auto;
+    }
+    #map,
+    #mapHospitales {
+        width: 80%;
+    }
+    .ocultar-responsive-2 {
+        display: none;
+    }
+    #contenido h2 {
+        margin-bottom: 0;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    #map,
+    #mapHospitales {
+        width: 340px;
+        height: 500px;
+    }
+    .more-link {
+        width: 50%;
+    }
+    #parrafo {
+        font-size: 20px;
+        width: 70%;
+        margin: 50px auto;
+    }
+    .ocultar-responsive {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    #contenido h2 {
+        margin: 0;
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    #map,
+    #mapHospitales {
+        width: 300px;
+        height: 500px;
+    }
+}
+
+@media screen and (max-width: 300px) {
+    #map,
+    #mapHospitales {
+        width: 90%;
+    }
+    #parrafo {
+        font-size: 18px;
+        width: 80%;
+        margin: 50px auto;
+    }
+    .ocultar {
+        display: none;
+    }
+}

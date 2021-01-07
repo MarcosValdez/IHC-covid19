@@ -1,0 +1,121 @@
+<%- include ('partials/_header') %>
+
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v2.0.0/mapbox-gl.css' rel='stylesheet' />
+    <link rel="stylesheet" href="/css/index.css">
+    </head>
+
+    <body>
+
+        <%- include ('partials/_navbar',{uno:'inicio', dos: '', tres: ''}) %>
+
+            <aside class="responsive-banner">
+                <span class="circle-a"></span>
+                <span class="circle-b"></span>
+                <div class="container-envelope">
+
+                    <div class="col-xs-12">
+                        <p id="parrafo" class="animate__animated animate__bounce">Verifique aqui si usted es beneficiario para la vacuna
+                        </p>
+                        <div class="more-link">
+                            <a href="verificar"> Verificar </a>
+                        </div>
+                        <button class="more-link btncss">Verificar</button>
+                    </div>
+
+                </div>
+            </aside>
+            <button class="more-link btncss">Verificar</button>
+            <section class="main-content">
+
+                <div id="contenido">
+                    <div>
+                        <h2>Contagiados en el Perú</h2>
+                    </div>
+
+                    <div>
+                        <p>
+                            Usted puede verificar en este mapa la cantidad de contagiados por el COVID-19. Mientras mas roja se encuentre la zona, mayor es la cantidad de contagiados.
+                        </p>
+                        <p>
+                            Si se encuentra en una zona peligrosa, tome las mayores precauciones y siga las medidas de seguridad, especialmente si forma parte de la población vulnerable.
+                        </p>
+                    </div>
+                </div>
+
+                <div id='map'></div>
+
+            </section>
+            <br>
+            <br>
+            <br>
+            <section class="main-content res-2">
+
+                <div id='mapHospitales'></div>
+
+                <div id="contenido">
+                    <div>
+                        <h2>Centros de vacunacion</h2>
+                    </div>
+
+                    <div>
+                        <p>
+                            En este mapa usted puede visualizar la ubicacion de los hospitales que actuarán como centros de vacunación contra el COVID-19. Seleccione un icono de jeringa en el mapa para saber la dirección del hospital seleccionado.
+                        </p>
+                        <p>
+                            Si desea información mas detallada acerca de los hospitales elegidos, o buscar directamente el nombre de algun hospital, puede hechar un vistaso a la lista que brindamos mas abajo
+                        </p>
+                    </div>
+                </div>
+
+            </section>
+
+            <br id="hospital">
+            <br>
+            <br>
+            <br>
+
+
+            <h2 class="ocultar">Hospitales donde se puede vacunar</h2>
+
+            <div class="table-responsive ocultar">
+                <table id="data" class="table">
+                    <thead>
+                        <tr>
+                            <th class="th-sm">Hospital</th>
+                            <th class="th-sm ocultar-responsive">Direccion</th>
+                            <th class="th-sm ocultar-responsive-2">Telefono</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <% for (let i=0; i < resultado.length; i++){ %>
+                            <tr>
+                                <td>
+                                    <%= resultado[i].nombre_hospital %>
+                                </td>
+                                <td class="ocultar-responsive">
+                                    <%= resultado[i].direccion_hospital %>
+                                </td>
+                                <td class="ocultar-responsive-2">
+                                    <%= resultado[i].telefono_paciente %>
+                                </td>
+                            </tr>
+                            <% } %>
+                    </tbody>
+                </table>
+            </div>
+
+            <%- include ('partials/_footer') %>
+
+
+                <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v2.0.0/mapbox-gl.js'></script>
+                <script src='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+                <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js"></script>
+
+                <script src="https://cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"></script>
+                <script src="index.js"></script>
+
+    </body>
+
+    </html>
