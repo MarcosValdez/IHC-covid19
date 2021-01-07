@@ -53,9 +53,11 @@ passport.use('local.validate', new LocalStrategy({
 }, async(req, username, password, done) => {
     console.log("dentro de passport");
     console.log(req.body);
-    const rows = await pool.query('SELECT * FROM PERSONA WHERE dni = ?', [username]);
-    console.log(rows);
-    /* const rows = await pool.query("SELECT P.dni, P.nombre, P.apellido, P.edad, P.fecha_emision, S.nombre_subcategoria, C.nombre_categoria FROM PERSONA P JOIN SUBCATEGORIA S ON (P.id_subcategoria=S.id_subcategoria) JOIN CATEGORIA C ON (S.id_categoria=C.id_categoria) WHERE C.nombre_categoria='Fuerza Aerea' or C.nombre_categoria='Ejercito' or C.nombre_categoria='Marina' or C.nombre_categoria='Salud' or C.nombre_categoria='Fuerzas Policiales' or P.edad>=60;", [username]); */
+    /* const rows = await pool.query('SELECT * FROM PERSONA WHERE dni = ?', [username]);
+    console.log(rows); */
+
+
+    const rows = await pool.query("SELECT P.dni, P.nombre, P.apellido, P.edad, P.fecha_emision, S.nombre_subcategoria, C.nombre_categoria FROM PERSONA P JOIN SUBCATEGORIA S ON (P.id_subcategoria=S.id_subcategoria) JOIN CATEGORIA C ON (S.id_categoria=C.id_categoria) WHERE P.dni=06584242 and (C.nombre_categoria='Fuerza Aerea' or C.nombre_categoria='Ejercito' or C.nombre_categoria='Marina' or C.nombre_categoria='Salud' or C.nombre_categoria='Fuerzas Policiales' or P.edad>=60 ); = ?", [username]);
 
     /* console.log(rows); */
 
@@ -76,16 +78,19 @@ passport.use('local.validate', new LocalStrategy({
 
             if (body.success !== undefined && !body.success) {
                 console.log(1234567);
-                return res.json({ "responseError": "Failed captcha verification" });
-                /*res.render('/verificar') */
-                /* done(null, false, req.flash('validate', 'Failed captcha verification')); */
+                return true
+                    /*res.render('/verificar') */
+                    /* done(null, false, req.flash('validate', 'Failed captcha verification')); */
             }
-            res.json({ "responseSuccess": "Sucess" });
+            /* res.json({ "responseSuccess": "Sucess" }); */
 
             console.log("viewoviewbnvibewvoibewvoibwev");
+            return true
         });
         console.log(respuesta);
     }
+
+    done(null, false, req.flash('validate', 'Funciona'));
 
     //fin
     /*  if (rows.length > 0) {
