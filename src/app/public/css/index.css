@@ -124,7 +124,8 @@
 
 .responsive-banner {
     margin: 0px auto 50px;
-    padding-top: 50px;
+    /* margin-top: 100px; */
+    padding-top: 100px;
     width: 100%;
     min-width: 230px;
     max-width: 1366px;
@@ -240,14 +241,12 @@ span:before {
     font-size: 1.5rem;
 }
 
-
 .more-link:hover {
     transition: cubic-bezier(1, 0, 0, 1);
-    transform: scale(1.05,1.05);
+    transform: scale(1.05, 1.05);
     text-decoration: none;
     color: black;
 }
-
 
 h1 {
     text-align: center;
