@@ -4,6 +4,19 @@
     <link rel="stylesheet" href="/css/index.css">
     </head>
 
+    <style>
+        .sindata {
+            display: none;
+        }
+        
+        .mapbtn {
+            width: 50%;
+            margin: auto;
+            margin-top: 20px;
+            border-radius: 20px;
+        }
+    </style>
+
     <body>
 
         <%- include ('partials/_navbar',{uno:'inicio', dos: '', tres: ''}) %>
@@ -28,7 +41,7 @@
                         <div class="carousel-item">
                             <p id="parrafo" class="animate__animated animate__bounce">Verifique aqui el mapa de contagiados en el Perú
                             </p>
-                            <a href="verificar" class="more-link"> Mapa </a>
+                            <a href="http://localhost:3000/" class="more-link" target="_blank"> Mapa </a>
                         </div>
                     </div>
                     <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -58,17 +71,17 @@
                             Si se encuentra en una zona peligrosa, tome las mayores precauciones y siga las medidas de seguridad, especialmente si forma parte de la población vulnerable.
                         </p>
                     </div>
+                    <a href="http://localhost:3000/" class="btn btn-primary mapbtn" target="_blank"> Mapa </a>
                 </div>
 
-                <div id='map'></div>
+                <div id='map' class="sindata"></div>
 
             </section>
             <br>
             <br>
             <br>
-            <section class="main-content res-2">
+            <section class="main-content">
 
-                <div id='mapHospitales'></div>
 
                 <div id="contenido">
                     <div>
@@ -85,6 +98,7 @@
                     </div>
                 </div>
 
+                <div id='mapHospitales'></div>
             </section>
 
             <br id="hospital">
@@ -124,7 +138,13 @@
             </div>
 
             <%- include ('partials/_footer') %>
+                <script>
+                    texto = 'Hola usuario nuevo';
 
+                    const hablar = (texto) => speechSynthesis.speak(new SpeechSynthesisUtterance(texto));
+
+                    hablar(texto);
+                </script>
 
                 <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v2.0.0/mapbox-gl.js'></script>
                 <script src='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>

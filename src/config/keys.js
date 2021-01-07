@@ -4,9 +4,9 @@ module.exports = {
         user: 'uhywjyex8jbxjeox',
         password: 'QnGKOhD8Heed8htTO8OJ',
         database: 'bbqawibtcfyfmjgv0usz'
-            /*  host: 'localhost',
-             user: 'root',
-             password: '',
-             database: 'ihc' */
+            /* host: 'localhost',
+            user: 'root',
+            password: '',
+            database: 'ihc' */
     }
 };

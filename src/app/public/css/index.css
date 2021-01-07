@@ -237,7 +237,7 @@ span:before {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    color: black;
+    color: beige;
     font-size: 1.5rem;
 }
 
@@ -245,7 +245,8 @@ span:before {
     transition: cubic-bezier(1, 0, 0, 1);
     transform: scale(1.05, 1.05);
     text-decoration: none;
-    color: black;
+    background: whitesmoke;
+    color: #3498db;
 }
 
 

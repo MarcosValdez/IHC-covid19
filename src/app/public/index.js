@@ -48,5 +48,3 @@ mapHospitales.on('click', function(e) {
         .setHTML('<h3>' + feature.properties.title + '</h3><p>' + feature.properties.description + '</p>')
         .addTo(mapHospitales);
 });
-
-
