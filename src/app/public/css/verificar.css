@@ -5,6 +5,19 @@ body {
     justify-content: space-between;
 }
 
+#btn{
+    border-radius: 10px;
+    background-color: rgb(47, 26, 102);
+    margin-left: 40px;
+    color:white;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+#btn:hover{
+    background-color: rgb(79, 54, 144);
+}
+
 .vacio {
     height: 65px;
 }
@@ -14,16 +27,29 @@ body {
     width: 80%;
     margin: auto;
     box-shadow: 7px 13px 37px gray;
-    border-radius: 2%;
+    padding-left: 10px;
+    padding-bottom: 10px;
 }
 
 .imagen {
+    margin-top: 10px;
     width: 50%;
-    background: #000;
+    background: rgb(92, 114, 235);
+    border-radius: 10px;
 }
 
 .imagen img {
     width: 100%;
+    border-radius: 10px;
+}
+
+#grupowarning{
+    margin-top: 50px;
+}
+
+.warning{
+    margin-top: 15px;
+    color: white;
 }
 
 label {
@@ -50,7 +76,14 @@ p {
 }
 
 .content {
-    width: 100%;
+    /* width: 100%;
+    margin: 0px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center; */
+    width: 80%;
     margin: 0px auto;
     display: flex;
     flex-direction: column;
@@ -66,7 +99,24 @@ p {
 .cab {
     width: 95%;
     background: #6286FB;
+<<<<<<< HEAD
     text-align: center;
+=======
+    border-radius: 10px;
+    text-align: center;
+}
+
+#dni1{
+    font-size: 25px;
+}
+
+#fecha{
+    font-size: 25px;
+}
+
+.input {
+    width: 45%;
+>>>>>>> Marcos333
 }
 
 .titulo-cab {
@@ -103,13 +153,18 @@ p {
 }
 
 .mensaje-error {
-    width: 80%;
+    width:50%;
     margin: auto;
     padding: 20px;
     font-size: 18px;
-    background: #000;
+    background: rgb(214, 43, 43);
     color: #fff;
     text-align: center;
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    font-weight: 700;
 }
 
 .cerrar {
