@@ -2,7 +2,7 @@
 const path = require('path');
 const express = require('express');
 const passport = require('passport');
-const request = require('request')
+
 const router = express.Router();
 const pool = require('../../config/database');
 const { isLoggedIn, isNotLoggedIn } = require('../lib/auth');

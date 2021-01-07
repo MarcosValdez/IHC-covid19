@@ -1,6 +1,6 @@
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
-
+const request = require('request')
 const pool = require('../../config/database');
 const helpers = require('../lib/helpers');
 
@@ -59,57 +59,86 @@ passport.use('local.validate', new LocalStrategy({
 
     /* console.log(rows); */
 
-    if (rows.length > 0) {
-        const user = rows[0];
-        const fec = user.fecha_emision.toLocaleDateString();
-        let primeraFecha = [],
-            segundaFecha = [],
-            aux = '';
-        for (let i = 0; i < password.length; i++) {
-            if (i == 4) {
-                primeraFecha.push(aux);
-                aux = '';
-            } else if (i == 7) {
-                primeraFecha.push(aux);
-                aux = '';
-            } else {
-                aux += password[i];
-            }
-        }
-        primeraFecha.push(aux);
-        aux = '';
-        let t = 0;
-        for (let i = 0; i < fec.length; i++) {
-            if (fec[i] == '/') {
-                if (t == 1) {
-                    aux = '0'.concat(aux);
-                }
-                t = 0;
-                segundaFecha.push(aux);
-                aux = '';
-            } else {
-                aux += fec[i];
-                t++;
-            }
-        }
-        if (t == 1) {
-            aux = '0'.concat(aux);
-        }
-        segundaFecha.push(aux);
-        console.log(primeraFecha);
-        console.log(segundaFecha);
-        validPassword = false;
+    //inicio
+    if (req.body['g-recaptcha-response'] === undefined || req.body['g-recaptcha-response'] === '' || req.body['g-recaptcha-response'] === null) {
+        /* res.render('verificar')
+        return res.json({ "responseError": "something goes to wrong" }); */
+        console.log('ivnoqinvoiqnvoiqn');
+        done(null, false, req.flash('validate', 'something goes to wrong'));
+    } else {
 
-        //localhost
-        if (primeraFecha[0] == segundaFecha[2] && primeraFecha[1] == segundaFecha[1] && primeraFecha[2] == segundaFecha[0]) {
-            validPassword = true;
-        }
+        const secretKey = "6Lehlh4aAAAAAIVBY7LYIR1lRub1is89RB156d3s";
 
-        //en despliegue
-        /* if (primeraFecha[0] == segundaFecha[2] && primeraFecha[1] == segundaFecha[0] && primeraFecha[2] == segundaFecha[1]) {
-            validPassword = true;
-        } */
-        if (validPassword) {
+        const verificationURL = "https://www.google.com/recaptcha/api/siteverify?secret=" + secretKey + "&response=" + req.body['g-recaptcha-response'] + "&remoteip=" + req.connection.remoteAddress;
+
+        const respuesta = request(verificationURL, (error, response, body) => {
+            body = JSON.parse(body);
+
+            if (body.success !== undefined && !body.success) {
+                console.log(1234567);
+                return res.json({ "responseError": "Failed captcha verification" });
+                /*res.render('/verificar') */
+                /* done(null, false, req.flash('validate', 'Failed captcha verification')); */
+            }
+            res.json({ "responseSuccess": "Sucess" });
+
+            console.log("viewoviewbnvibewvoibewvoibwev");
+        });
+        console.log(respuesta);
+    }
+
+    //fin
+    /*  if (rows.length > 0) {
+         const user = rows[0];
+         const fec = user.fecha_emision.toLocaleDateString();
+         let primeraFecha = [],
+             segundaFecha = [],
+             aux = '';
+         for (let i = 0; i < password.length; i++) {
+             if (i == 4) {
+                 primeraFecha.push(aux);
+                 aux = '';
+             } else if (i == 7) {
+                 primeraFecha.push(aux);
+                 aux = '';
+             } else {
+                 aux += password[i];
+             }
+         }
+         primeraFecha.push(aux);
+         aux = '';
+         let t = 0;
+         for (let i = 0; i < fec.length; i++) {
+             if (fec[i] == '/') {
+                 if (t == 1) {
+                     aux = '0'.concat(aux);
+                 }
+                 t = 0;
+                 segundaFecha.push(aux);
+                 aux = '';
+             } else {
+                 aux += fec[i];
+                 t++;
+             }
+         }
+         if (t == 1) {
+             aux = '0'.concat(aux);
+         }
+         segundaFecha.push(aux);
+         console.log(primeraFecha);
+         console.log(segundaFecha);
+         validPassword = false;
+
+         //localhost
+         if (primeraFecha[0] == segundaFecha[2] && primeraFecha[1] == segundaFecha[1] && primeraFecha[2] == segundaFecha[0]) {
+             validPassword = true;
+         }
+
+         //en despliegue
+         /* if (primeraFecha[0] == segundaFecha[2] && primeraFecha[1] == segundaFecha[0] && primeraFecha[2] == segundaFecha[1]) {
+             validPassword = true;
+         } */
+    /*if (validPassword) {
             done(null, user, req.flash('success', [user.dni, user.id_hospital]));
         } else {
             done(null, false, req.flash('validate', 'Fecha de emision no valida, vuelva a ingresar los datos'));
@@ -117,7 +146,7 @@ passport.use('local.validate', new LocalStrategy({
     } else {
         console.log("ebnwoibno");
         return done(null, false, req.flash('validate', 'El DNI no existe, vuelva a ingresar los datos'));
-    }
+    } */
 }));
 
 
