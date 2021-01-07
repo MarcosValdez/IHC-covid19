@@ -206,6 +206,7 @@ span:before {
 }
 
 #parrafo {
+    text-align: center;
     clear: both;
     font-family: 'Work Sans', Helvetica, sans-serif;
     text-transform: none;
@@ -242,11 +243,9 @@ span:before {
 
 .more-link:hover {
     transition: cubic-bezier(1, 0, 0, 1);
-    transform: scale(1.1,1.1);
+    transform: scale(1.05,1.05);
     text-decoration: none;
     color: black;
-    
-    
 }
 
 
