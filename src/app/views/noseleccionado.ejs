@@ -1,0 +1,47 @@
+<%- include ('partials/_header') %>
+
+    <link rel="stylesheet" href="/css/noselect.css">
+
+    </head>
+
+    <body>
+        <header class="menu">
+            <section id="cabecera">
+                <a id="logo" href="/">AmezagaCode</a>
+                <nav class="navbar-menu">
+                    <ul id="navitem-elemento">
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="verificar">Verificar</a></li>
+                        <li><a href="#">Acerca de nosotros</a></li>
+                    </ul>
+                </nav>
+                <ul class="link-login-acceder">
+                    <li><a href="login"><i class="fas fa-sign-in-alt"></i>Acceder</a></li>
+                </ul>
+                <div class="lines">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </section>
+
+        </header>
+        <div></div>
+        <!-- partial:index.partial.html -->
+        <div class="container seleccionado">
+            <div class="titulo">
+                <div class="warning">
+                    <i class="fas fa-exclamation-triangle"></i>
+                </div>
+                USTED NO HA SIDO SELECCIONADO
+            </div>
+        </div>
+
+        <%- include ('partials/_footer') %>
+            <!-- partial -->
+            <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
+            <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js'></script>
+
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    </body>
+
+    </html>

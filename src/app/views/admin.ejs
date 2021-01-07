@@ -1,0 +1,168 @@
+<%- include ('partials/_header') %>
+    <link rel="stylesheet" href="/css/categoria.css">
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <!--  Datatables  -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.20/datatables.min.css" />
+
+    <!--  extension responsive  -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css">
+    <title></title>
+
+    <style>
+        table thead {
+            background-color: #38ef7d;
+        }
+    </style>
+    </head>
+
+    <body>
+
+        <%- include ('partials/_navbar',{uno:'inicio', dos: '' , tres: '' }) %>
+
+            <header class="menu">
+                <section id="cabecera">
+                    <div class="menu2">
+                        <a id="logo" href="/">AmezagaCode</a>
+                        <div class="lines hamburger" id="hamburger">
+                            <i class="fas fa-bars"></i>
+                        </div>
+                    </div>
+
+
+                    <nav class="navbar-menu nav-ul" id="nav-ul">
+                        <ul id="navitem-elemento" class="nav-ul">
+                            <li>
+                                <a href="/">Inicio</a>
+                            </li>
+                            <li>
+                                <a href="verificar">Verificar</a>
+                            </li>
+                            <li class="link-login-acceder">
+                                <a href="/logout">Logout </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </section>
+
+            </header>
+
+            <br>
+            <br>
+
+
+            <h1>Seleccione categoria:</h1><select class="select-css" name="Categorias" id="cat">
+            <% for (let i=0; i < categorias.length; i++){ %>
+                <option value="Academico">
+                    <%= categorias[i].nombre_categoria %>
+                </option>
+                <% } %>
+        </select>
+
+            <button class="boton" id="btn-filtro" type="submit">Buscar</button>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <table id="example" class="table table-bordered  display nowrap" cellspacing="0" width="100%">
+                            <thead>
+                                <tr>
+                                    <th>DNI</th>
+                                    <th>Nombres</th>
+                                    <th>Categoria</th>
+                                    <th>Subcategoria</th>
+                                    <th>Estado</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                <% for (let i=0; i < personas.length; i++){ %>
+                                    <tr>
+                                        <td>
+                                            <%= personas[i].dni %>
+                                        </td>
+                                        <td>
+                                            <%= personas[i].nombre %>
+                                        </td>
+                                        <td>
+                                            <%= categorias[subcategorias[personas[i].id_subcategoria -1].id_categoria
+                                                -1].nombre_categoria %>
+                                        </td>
+                                        <td>
+                                            <%= subcategorias[personas[i].id_subcategoria -1].nombre_subcategoria %>
+                                        </td>
+                                        <td>
+                                            <% if (personas[i].estado !='0' ) { %>
+                                                Vacunado
+
+                                                <%} else {%>
+                                                    No Vacunado
+                                                    <% } %>
+                                        </td>
+                                        <td id="fila-<%= i %>" class="tabla-vacia"><i class="fas fa-cog"></i></td>
+                                    </tr>
+                                    <% } %>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th>DNI</th>
+                                    <th>Nombres</th>
+                                    <th>Categoria</th>
+                                    <th>Subcategoria</th>
+                                    <th>Estado</th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Optional JavaScript -->
+            <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+            <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+            <!--   Datatables-->
+            <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.20/datatables.min.js"></script>
+
+            <!-- extension responsive -->
+            <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
+
+
+            <script>
+                $(document).ready(function() { // Setup - add a text input to each footer cell
+                    $('#example tfoot th').each(function() {
+                        var title = $(this).text();
+                        $(this).html('<input type="text" placeholder="Search ' + title + '" />');
+                    });
+
+                    // DataTable
+                    var table = $('#example').DataTable({
+                        initComplete: function() {
+                            // Apply the search
+                            this.api().columns().every(function() {
+                                var that = this;
+
+                                $('input', this.footer()).on('keyup change clear', function() {
+                                    if (that.search() !== this.value) {
+                                        that
+                                            .search(this.value)
+                                            .draw();
+                                    }
+                                });
+                            });
+                        }
+                    });
+                });
+            </script>
+
+    </body>
+
+    </html>
