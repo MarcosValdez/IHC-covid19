@@ -49,10 +49,15 @@
 
                         </form>
                     </div>
+                    <% if (noselect != '') { %>
+                        <div class="mensaje-error" id="mensaje">
+                            <%= noselect %>
+                                <button id="btn">X</button>
+                        </div>
+                        <% } %>
+                            <%- include ('partials/_footer') %>
 
-                    <%- include ('partials/_footer') %>
-
-                        <script src='https://www.google.com/recaptcha/api.js?hl=es'></script>
+                                <script src='https://www.google.com/recaptcha/api.js?hl=es'></script>
 
     </body>
 
