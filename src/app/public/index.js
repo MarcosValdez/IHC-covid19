@@ -8,6 +8,17 @@ $(document).ready(function() {
         "pageLength": 10
     });
 });
+
+$(document).ready(function() {
+    $('#dato').DataTable({
+        language: {
+            url: "https://cdn.datatables.net/plug-ins/1.10.22/i18n/Spanish.json"
+        },
+        "lengthChange": false,
+        "order": [],
+        "pageLength": 20
+    });
+});
 /* sticky menu */
 
 window.addEventListener("scroll", () => {
