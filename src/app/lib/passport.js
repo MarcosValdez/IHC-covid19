@@ -67,7 +67,7 @@ passport.use('local.validate', new LocalStrategy({
         /* res.render('verificar')
         return res.json({ "responseError": "something goes to wrong" }); */
         console.log('ivnoqinvoiqnvoiqn');
-        done(null, false, req.flash('validate', 'something goes to wrong'));
+        done(null, false, req.flash('validate', 'Completar el captcha'));
     } else {
 
         const secretKey = "6Lehlh4aAAAAAIVBY7LYIR1lRub1is89RB156d3s";

@@ -1,6 +1,7 @@
 <%- include ('partials/_header') %>
 
     <link rel="stylesheet" href="/css/verificar.css">
+    <script src='https://www.google.com/recaptcha/api.js?hl=es'></script>
     </head>
 
     <body>
@@ -9,7 +10,7 @@
             <div class="vacio"></div>
             <% if (validate != '') { %>
                 <div class="mensaje-error" id="mensaje">
-                    <%= validate %>
+                   <div id="peligro"> <i class="fas fa-exclamation-triangle"></i> </div> <%= validate %>
                         <button id="btn">X</button>
                 </div>
                 <% } %>
@@ -21,19 +22,19 @@
                                 <p class="warning"><i class="fas fa-exclamation-triangle"></i> No aceptes ayuda de grupos de redes sociales.</p>
                                 <p class="warning"><i class="fas fa-exclamation-triangle"></i> No hagas caso de llamadas, mensajes o correos fraudulentos.</p>
                             </div>
-
                         </div>
                         <form id="form-verificar" action="/verificar" method="post">
 
                             <div class="cab">
-                                <span class="titulo-cab">Consulte si usted es beneficiario de la vacuna</span>
+                                <span class="titulo-cab">Consulte si es beneficiario de la vacuna</span>
                             </div>
 
                             <div class="content">
-                                <label for="dni">Ingrese su DNI: </label>
+                                <label for="dni">Ingrese el DNI: </label>
                                 <input class="input" id="dni" type="text" maxlength="8" name="username" autofocus placeholder="DNI" autocomplete="off" required>
 
                             </div>
+
 
                             <div class="content">
                                 <label for="nombre">Ingrese la fecha de emision</label>
@@ -48,17 +49,17 @@
                             <button class="boton" id="btn-verificar" type="submit">Verificar</button>
 
                         </form>
+                        
                     </div>
                     <% if (noselect != '') { %>
+                        
                         <div class="mensaje-error" id="mensaje">
+                            <i class="fas fa-sad-tear"></i>
                             <%= noselect %>
                                 <button id="btn">X</button>
                         </div>
+                    
                         <% } %>
-                            <%- include ('partials/_footer') %>
-
-                                <script src='https://www.google.com/recaptcha/api.js?hl=es'></script>
-
+                    <%- include ('partials/_footer') %>   
     </body>
-
     </html>
