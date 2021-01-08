@@ -20,7 +20,7 @@ body {
 
 .vacio {
     height: 65px;
-    margin-top: 9%;
+    margin-top: 6%;
 }
 
 .contenedor {
@@ -139,7 +139,7 @@ p {
     text-align: center;
     font-weight: 500px;
     font-size: 27px;
-    margin-top: 33px;
+    
 }
 
 .mensaje-error {
@@ -151,10 +151,9 @@ p {
     color: #fff;
     text-align: center;
     text-align: center;
-    margin-top: 30px;
-    margin-bottom: 10px;
     border-radius: 10px;
     font-weight: 700;
+    margin-bottom: 12px;
 }
 
 .cerrar {
@@ -162,10 +161,14 @@ p {
 }
 
 .contenedor{
-    margin-top: 5%;
     margin-bottom: 2%;
 }
 
+@media screen and (max-width: 950px) {
+    .contenedor{
+        margin-top: 5%;
+    }
+}
 
 @media screen and (max-width: 768px) {
 
@@ -187,6 +190,7 @@ p {
     .contenedor{
         flex-direction: column-reverse;
         flex-wrap: wrap;
+        margin-top: 10%;
     }
 
     .imagen{
@@ -194,3 +198,9 @@ p {
         margin: auto;
     }
 }
+
+#peligro{
+    color: yellow;
+    display: inline-block;
+}
+
