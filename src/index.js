@@ -12,7 +12,7 @@ const app = express();
 
 require('./app/lib/passport');
 
-app.set('port', process.env.PORT || 3000);
+app.set('port', process.env.PORT || 4000);
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, './app/views'));
 
@@ -37,6 +37,7 @@ app.use((req, res, next) => {
     app.locals.success = req.flash('success');
     app.locals.message = req.flash('message');
     app.locals.validate = req.flash('validate');
+    app.locals.noselect = req.flash('noselect');
     app.locals.user = req.user;
     next();
 });
@@ -51,4 +52,5 @@ app.use(function(req, res, next) {
 
 app.listen(app.get('port'), () => {
     console.log('Server on port ', app.get('port'));
+    console.log(`http://localhost:${app.get('port')}`)
 });

@@ -5,16 +5,16 @@ body {
     justify-content: space-between;
 }
 
-#btn{
+#btn {
     border-radius: 10px;
     background-color: rgb(47, 26, 102);
     margin-left: 40px;
-    color:white;
+    color: white;
     font-size: 20px;
     font-weight: 500;
 }
 
-#btn:hover{
+#btn:hover {
     background-color: rgb(79, 54, 144);
 }
 
@@ -44,11 +44,11 @@ body {
     border-radius: 10px;
 }
 
-#grupowarning{
+#grupowarning {
     margin-top: 50px;
 }
 
-.warning{
+.warning {
     margin-top: 15px;
     color: white;
 }
@@ -97,11 +97,11 @@ p {
     text-align: center;
 }
 
-#dni1{
+#dni1 {
     font-size: 25px;
 }
 
-#fecha{
+#fecha {
     font-size: 25px;
 }
 
@@ -143,7 +143,7 @@ p {
 }
 
 .mensaje-error {
-    width:50%;
+    width: 50%;
     margin: auto;
     padding: 20px;
     font-size: 18px;

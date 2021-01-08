@@ -13,11 +13,19 @@
                     <div class="check">
                         <i class="far fa-check-circle"></i>
                     </div>
-                    HAS SIDO SELECCIONADO
-                    <% if (success != '') { %>
-                        PERSONA CON DNI
-                        <%= success[0]  %>
+
+                    <div class="row">
+                        <div class="col-8">
+                            HAS SIDO SELECCIONADO
+                        </div>
+                        <div class="col">
+                            <% if (success != '') { %>
+                                TU DNI
+                                <%= success[0]  %>
                             <% } %>
+                        </div>
+                    </div>
+
                 </div>
                 <div class="datos">
                     <div class="row">

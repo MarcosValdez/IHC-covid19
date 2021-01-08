@@ -1,7 +1,6 @@
 <%- include ('partials/_header') %>
 
     <link rel="stylesheet" href="/css/verificar.css">
-    <script src='https://www.google.com/recaptcha/api.js?hl=es'></script>
     </head>
 
     <body>
@@ -27,15 +26,14 @@
                         <form id="form-verificar" action="/verificar" method="post">
 
                             <div class="cab">
-                                <span class="titulo-cab">Consulte si es beneficiario de la vacuna</span>
+                                <span class="titulo-cab">Consulte si usted es beneficiario de la vacuna</span>
                             </div>
 
                             <div class="content">
-                                <label for="dni">Ingrese el DNI: </label>
+                                <label for="dni">Ingrese su DNI: </label>
                                 <input class="input" id="dni" type="text" maxlength="8" name="username" autofocus placeholder="DNI" autocomplete="off" required>
 
                             </div>
-
 
                             <div class="content">
                                 <label for="nombre">Ingrese la fecha de emision</label>
@@ -51,8 +49,16 @@
 
                         </form>
                     </div>
+                    <% if (noselect != '') { %>
+                        <div class="mensaje-error" id="mensaje">
+                            <%= noselect %>
+                                <button id="btn">X</button>
+                        </div>
+                        <% } %>
+                            <%- include ('partials/_footer') %>
 
-                    <%- include ('partials/_footer') %>
-                   
+                                <script src='https://www.google.com/recaptcha/api.js?hl=es'></script>
+
     </body>
+
     </html>

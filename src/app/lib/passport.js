@@ -1,6 +1,6 @@
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
-
+const request = require('request')
 const pool = require('../../config/database');
 const helpers = require('../lib/helpers');
 
@@ -51,67 +51,190 @@ passport.use('local.validate', new LocalStrategy({
     passwordField: 'password',
     passReqToCallback: true
 }, async(req, username, password, done) => {
+    console.log("dentro de passport");
+    console.log(req.body);
+    /* const rows = await pool.query('SELECT * FROM PERSONA WHERE dni = ?', [username]);
+    console.log(rows); */
 
-    const rows = await pool.query('SELECT * FROM PERSONA WHERE dni = ?', [username]);
 
-    if (rows.length > 0) {
-        const user = rows[0];
-        const fec = user.fecha_emision.toLocaleDateString();
-        let primeraFecha = [],
-            segundaFecha = [],
-            aux = '';
-        for (let i = 0; i < password.length; i++) {
-            if (i == 4) {
-                primeraFecha.push(aux);
-                aux = '';
-            } else if (i == 7) {
-                primeraFecha.push(aux);
-                aux = '';
-            } else {
-                aux += password[i];
+
+    /* console.log(rows); */
+
+    //inicio
+
+    let l = false;
+    if (req.body['g-recaptcha-response'] === undefined || req.body['g-recaptcha-response'] === '' || req.body['g-recaptcha-response'] === null) {
+        /* res.render('verificar')
+        return res.json({ "responseError": "something goes to wrong" }); */
+        console.log('ivnoqinvoiqnvoiqn');
+        done(null, false, req.flash('validate', 'something goes to wrong'));
+    } else {
+
+        const secretKey = "6Lehlh4aAAAAAIVBY7LYIR1lRub1is89RB156d3s";
+
+        const verificationURL = "https://www.google.com/recaptcha/api/siteverify?secret=" + secretKey + "&response=" + req.body['g-recaptcha-response'] + "&remoteip=" + req.connection.remoteAddress;
+
+        const respuesta = request(verificationURL, async(error, response, body) => {
+            body = JSON.parse(body);
+
+            if (body.success !== undefined && !body.success) {
+                done(null, false, req.flash('validate', 'Error con el captcha'));
+                console.log(1234567);
+                return true
+                    /*res.render('/verificar') */
+                    /* done(null, false, req.flash('validate', 'Failed captcha verification')); */
             }
-        }
-        primeraFecha.push(aux);
-        aux = '';
-        let t = 0;
-        for (let i = 0; i < fec.length; i++) {
-            if (fec[i] == '/') {
+            /* res.json({ "responseSuccess": "Sucess" }); */
+
+            const rowss = await pool.query('SELECT * FROM PERSONA WHERE dni = ?', [username]);
+            let flag = false
+            if (rowss.length > 0) {
+                flag = true
+            }
+
+            const rows = await pool.query("SELECT P.dni, P.nombre, P.apellido, P.edad, P.fecha_emision, S.nombre_subcategoria, C.nombre_categoria FROM PERSONA P JOIN SUBCATEGORIA S ON (P.id_subcategoria=S.id_subcategoria) JOIN CATEGORIA C ON (S.id_categoria=C.id_categoria) WHERE P.dni = ? and (C.nombre_categoria='Fuerza Aerea' or C.nombre_categoria='Ejercito' or C.nombre_categoria='Marina' or C.nombre_categoria='Salud' or C.nombre_categoria='Fuerzas Policiales' or P.edad>=60 );", [username]);
+            //oivbwoivbowbvoewv
+            if (rows.length > 0) {
+                const user = rows[0];
+                const fec = user.fecha_emision.toLocaleDateString();
+                let primeraFecha = [],
+                    segundaFecha = [],
+                    aux = '';
+                for (let i = 0; i < password.length; i++) {
+                    if (i == 4) {
+                        primeraFecha.push(aux);
+                        aux = '';
+                    } else if (i == 7) {
+                        primeraFecha.push(aux);
+                        aux = '';
+                    } else {
+                        aux += password[i];
+                    }
+                }
+                primeraFecha.push(aux);
+                aux = '';
+                let t = 0;
+                for (let i = 0; i < fec.length; i++) {
+                    if (fec[i] == '/') {
+                        if (t == 1) {
+                            aux = '0'.concat(aux);
+                        }
+                        t = 0;
+                        segundaFecha.push(aux);
+                        aux = '';
+                    } else {
+                        aux += fec[i];
+                        t++;
+                    }
+                }
                 if (t == 1) {
                     aux = '0'.concat(aux);
                 }
-                t = 0;
                 segundaFecha.push(aux);
-                aux = '';
+                console.log(primeraFecha);
+                console.log(segundaFecha);
+                validPassword = false;
+
+                //localhost
+                if (primeraFecha[0] == segundaFecha[2] && primeraFecha[1] == segundaFecha[1] && primeraFecha[2] == segundaFecha[0]) {
+                    validPassword = true;
+                }
+
+                //en despliegue
+                /* if (primeraFecha[0] == segundaFecha[2] && primeraFecha[1] == segundaFecha[0] && primeraFecha[2] == segundaFecha[1]) {
+                    validPassword = true;
+                } */
+                if (validPassword) {
+                    done(null, user, req.flash('success', [user.dni, user.id_hospital]));
+                } else {
+                    done(null, false, req.flash('validate', 'Fecha de emision no valida, vuelva a ingresar los datos'));
+                }
             } else {
-                aux += fec[i];
-                t++;
+                console.log("ebnwoibno");
+                if (flag) {
+
+                    return done(null, false, req.flash('noselect', 'El DNI no ha sido seleccionado'));
+                }
+                return done(null, false, req.flash('validate', 'El DNI no existe, vuelva a ingresar los datos'));
+
             }
-        }
-        if (t == 1) {
-            aux = '0'.concat(aux);
-        }
-        segundaFecha.push(aux);
-        console.log(primeraFecha);
-        console.log(segundaFecha);
-        validPassword = false;
 
-        //localhost
-        if (primeraFecha[0] == segundaFecha[2] && primeraFecha[1] == segundaFecha[1] && primeraFecha[2] == segundaFecha[0]) {
-            validPassword = true;
-        }
+            //boiwboivbewboweiwewrb
+            console.log("viewoviewbnvibewvoibewvoibwev");
+            l = true
+            console.log('inoi');
+            return true
+        });
+        console.log("respuesta");
+    }
 
-        //en despliegue
-        /* if (primeraFecha[0] == segundaFecha[2] && primeraFecha[1] == segundaFecha[0] && primeraFecha[2] == segundaFecha[1]) {
-            validPassword = true;
-        } */
-        if (validPassword) {
+    if (l) {
+        console.log("dentro de l");
+
+        done(null, false, req.flash('validate', 'Funciona2'));
+    }
+
+
+    //fin
+    /*  if (rows.length > 0) {
+         const user = rows[0];
+         const fec = user.fecha_emision.toLocaleDateString();
+         let primeraFecha = [],
+             segundaFecha = [],
+             aux = '';
+         for (let i = 0; i < password.length; i++) {
+             if (i == 4) {
+                 primeraFecha.push(aux);
+                 aux = '';
+             } else if (i == 7) {
+                 primeraFecha.push(aux);
+                 aux = '';
+             } else {
+                 aux += password[i];
+             }
+         }
+         primeraFecha.push(aux);
+         aux = '';
+         let t = 0;
+         for (let i = 0; i < fec.length; i++) {
+             if (fec[i] == '/') {
+                 if (t == 1) {
+                     aux = '0'.concat(aux);
+                 }
+                 t = 0;
+                 segundaFecha.push(aux);
+                 aux = '';
+             } else {
+                 aux += fec[i];
+                 t++;
+             }
+         }
+         if (t == 1) {
+             aux = '0'.concat(aux);
+         }
+         segundaFecha.push(aux);
+         console.log(primeraFecha);
+         console.log(segundaFecha);
+         validPassword = false;
+
+         //localhost
+         if (primeraFecha[0] == segundaFecha[2] && primeraFecha[1] == segundaFecha[1] && primeraFecha[2] == segundaFecha[0]) {
+             validPassword = true;
+         }
+
+         //en despliegue
+         /* if (primeraFecha[0] == segundaFecha[2] && primeraFecha[1] == segundaFecha[0] && primeraFecha[2] == segundaFecha[1]) {
+             validPassword = true;
+         } */
+    /*if (validPassword) {
             done(null, user, req.flash('success', [user.dni, user.id_hospital]));
         } else {
             done(null, false, req.flash('validate', 'Fecha de emision no valida, vuelva a ingresar los datos'));
         }
     } else {
+        console.log("ebnwoibno");
         return done(null, false, req.flash('validate', 'El DNI no existe, vuelva a ingresar los datos'));
-    }
+    } */
 }));
 
 
